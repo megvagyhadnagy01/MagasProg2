@@ -1,0 +1,1 @@
+Ez egy leet translator program input szoveg hogy tesztelni lehessen.

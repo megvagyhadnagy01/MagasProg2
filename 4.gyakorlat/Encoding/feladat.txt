@@ -1,0 +1,1 @@
+Sikeresen lefordult úgyis hogy a forrásban és a fájlnevekben ékezetes betűk vannak.
