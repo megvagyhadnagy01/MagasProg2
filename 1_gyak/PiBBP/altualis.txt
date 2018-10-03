@@ -1,0 +1,1 @@
+A feladat megoldására nem tudtam önálló megoldást irni ezért Bátfai Norbert tanárúr forráskódját vettem igénybe. A feladatot értelmeztem és sikeresen forditottam, futtattam.

@@ -1,0 +1,2 @@
+A polargen feladat c++ verziójának értelmezését elkezdtem. A forditáskor hibát ir ki ezért még idő szügséges ahhoz, hogy a program megfelelően működjön.
+UPDATE: A polargenteszt.cpp sikeresen fordult és futott.

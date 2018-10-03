@@ -1,0 +1,1 @@
+A Yoda feladatnál egy saját kódot irtam ami sikeresen fordult és futott. Remélem jól szemlélteti a feladat lényegét

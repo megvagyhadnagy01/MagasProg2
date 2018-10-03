@@ -1,0 +1,1 @@
+A feladat értelmezése és a c++ verzió irása, forditása és futtatása sikeresen megtörtént. A java verzióján még dolgozok.

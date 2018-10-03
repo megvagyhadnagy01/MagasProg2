@@ -1,0 +1,1 @@
+A polargen feladatra nem sikerült saját forráskódot irni ezért Bátfai Norbet tanárúr által megadott kódot értelmeztem majd forditottam és futtattam.s
