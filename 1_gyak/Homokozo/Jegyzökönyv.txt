@@ -1,0 +1,3 @@
+A feladat megoldásához tutorként Bátfai Norbert tanárúr forráskódját vettem igénybe.
+gyekeztem a feladathoz hüen rámutatni a pointerekre ileltve a referenciákra.
+ A feladatot értelmeztem és sikeresen forditottam, futtattam.
