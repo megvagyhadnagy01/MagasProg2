@@ -1,3 +1,23 @@
+/*
+ * PiBBPBench.java
+ *
+ * DIGIT 2005, Javat tanítok
+ * Bátfai Norbert, nbatfai@inf.unideb.hu
+ *
+ */
+/**
+ * A PiBBP.java-ból kivettük az "objektumorientáltságot", így kaptuk
+ * ezt az osztályt.
+ *
+ * (A PiBBP osztály a BBP (Bailey-Borwein-Plouffe) algoritmust a Pi hexa
+ * jegyeinek számolását végző osztály. A könnyebb olvahatóság
+ * kedvéért a változó és metódus neveket megpróbáltuk az algoritmust
+ * bemutató [BBP ALGORITMUS] David H. Bailey: The BBP Algorithm for Pi.
+ * cikk jelöléseihez.)
+ *
+ * @author Bátfai Norbert, nbatfai@inf.unideb.hu
+ * @version 0.0.1
+ */
 public class PiBBPBench {
     /**
      * BBP algoritmus a Pi-hez, a [BBP ALGORITMUS] David H. Bailey: The
@@ -73,7 +93,7 @@ public class PiBBPBench {
         
         long delta = System.currentTimeMillis();
         
-        for(int d=1000000; d<1000001; ++d) {
+        for(int d=100000000; d<100000001; ++d) {
             
             d16Pi = 0.0d;
             

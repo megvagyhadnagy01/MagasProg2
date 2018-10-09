@@ -1,0 +1,22 @@
+Gép
+=========
+CPU:	Intel® Core™2 Duo CPU T6570 @ 2.10GHz × 2 
+RAM:	2,8 Gb ~3 GB
+
+Futásidők
+=========
+
+1,probálkozás
+-
+C	41.497940
+C#	288.672 a hexademális számjegy:3
+Java	469.223 és a hexademális számjegy :12
+
+2.probálkozás
+-
+C	706.718996
+C#	287.115 sec a hexademális számjegy:3
+Java	476.223 a hexademális számjegy:12
+
+Jegyzőkönyv:
+A BBP algoritmussal PI hexadecimálisan a 10^6,10^7és 10^8 db jegyét határozuk meg.Tutorként Bátfai Norbert tanár úr kodjáthasználtam.Értelmeztem és lefutot a kod.
