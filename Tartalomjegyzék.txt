@@ -1,0 +1,71 @@
+Tartalomjegyzék
+===========
+
+Varga Sándor Mátyás Pti-Bsc 2.évf
+
+===========
+
+A feladatok fennt vannak a repóban, hetekre bontva.
+
+
+---------------------------
+
+
+1.hét:
+
+  Gagyi:
+    Elkezdtem és befejeztem
+
+  Homokozó:
+    Elkezdtem és befejeztem
+
+  Kódolás from scratch:
+    Elkezdtem és Befejeztem
+
+  OO szemlélet:
+    Elkezdtem és befejeztem
+
+  Yoda:
+    Elkezdtem és befejeztem
+
+---------------------------
+
+2.hét:
+
+  Liskov helyettesítés sértése:
+    Elkezdtem és befejeztem
+
+  Anto OO:
+    Elkezdtem és befejeztem
+
+  Szülõ-gyerek:
+    Elkezdtem és befejeztem
+
+---------------------------
+
+3.hét:
+
+  BPMN:
+    Elkezdtem és befejeztem
+
+  Reverse engineering UML:
+    Elkezdtem és befejeztem
+
+  Forward engineering UML:
+    Elkezdtem és befejeztem
+ 
+  Esett tanulmány: Elkezdtem és még folymatban   
+---------------------------
+
+4.hét:
+
+  Encoding:
+    Elkezdtem és befejeztem
+
+  Fullscreen:
+    Elkezdtem és befejeztem
+
+  Leettranslator:
+    Elkezdtem és befejeztem
+
+    
