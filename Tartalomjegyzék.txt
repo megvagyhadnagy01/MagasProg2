@@ -1,71 +1,72 @@
-Tartalomjegyzék
+TartalomjegyzÃ©k
 ===========
 
-Varga Sándor Mátyás Pti-Bsc 2.évf
+Varga SÃ¡ndor MÃ¡tyÃ¡s Pti-Bsc 2.Ã©vf
 
 ===========
 
-A feladatok fennt vannak a repóban, hetekre bontva.
+A feladatok fennt vannak a repÃ³ban, hetekre bontva.
 
 
 ---------------------------
 
 
-1.hét:
+1.hÃ©t:
 
   Gagyi:
-    Elkezdtem és befejeztem
+    Elkezdtem Ã©s befejeztem
 
-  Homokozó:
-    Elkezdtem és befejeztem
+  HomokozÃ³:
+    Elkezdtem Ã©s befejeztem
 
-  Kódolás from scratch:
-    Elkezdtem és Befejeztem
+  KÃ³dolÃ¡s from scratch:
+    Elkezdtem Ã©s Befejeztem
 
-  OO szemlélet:
-    Elkezdtem és befejeztem
+  OO szemlÃ©let:
+    Elkezdtem Ã©s befejeztem
 
   Yoda:
-    Elkezdtem és befejeztem
+    Elkezdtem Ã©s befejeztem
 
 ---------------------------
 
-2.hét:
+2.hÃ©t:
 
-  Liskov helyettesítés sértése:
-    Elkezdtem és befejeztem
+  Liskov helyettesÃ­tÃ©s sÃ©rtÃ©se:
+    Elkezdtem Ã©s befejeztem
 
   Anto OO:
-    Elkezdtem és befejeztem
+    Elkezdtem Ã©s befejeztem
 
-  Szülõ-gyerek:
-    Elkezdtem és befejeztem
+  SzÃ¼lÅ‘-gyerek:
+    Elkezdtem Ã©s befejeztem
 
 ---------------------------
 
-3.hét:
+3.hÃ©t:
 
   BPMN:
-    Elkezdtem és befejeztem
+    Elkezdtem Ã©s befejeztem
 
   Reverse engineering UML:
-    Elkezdtem és befejeztem
+    Elkezdtem Ã©s befejeztem
 
   Forward engineering UML:
-    Elkezdtem és befejeztem
+    Elkezdtem Ã©s befejeztem
  
-  Esett tanulmány: Elkezdtem és még folymatban   
+  Esett tanulmÃ¡ny:
+    Elkezdtem Ã©s befejztem.  
 ---------------------------
 
-4.hét:
+4.hÃ©t:
 
   Encoding:
-    Elkezdtem és befejeztem
+    Elkezdtem Ã©s befejeztem
 
   Fullscreen:
-    Elkezdtem és befejeztem
+    Elkezdtem Ã©s befejeztem
 
   Leettranslator:
-    Elkezdtem és befejeztem
+    Elkezdtem Ã©s befejeztem
 
     
