@@ -1,0 +1,5 @@
+ A carlexer.ll fájl elején rövidítések vannak definiálva, amelyek
+értékei vagy konkrét karaktersorozatként, vagy reguláris kifejezésként vannak megadva.
+A lexer ezeket a rövidítéseket használja fel mintaként, ha pedig a megadott minták
+valamelyikével egyezést talál, akkor annak a szövegét megfelelõ formátumúvá alakítja át,
+és ezt memóriacímen tárolja.

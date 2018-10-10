@@ -1,0 +1,2 @@
+ A netbeans alap karaterkodólása Utf-8 a fileok pedig olyan
+karakterkodlást tartalmaznak mai nincs beaállitva ezért át kell állitani windows-1252-re.
