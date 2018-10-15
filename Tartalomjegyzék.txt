@@ -69,4 +69,17 @@ A feladatok fennt vannak a repóban, hetekre bontva.
   Leettranslator:
     Elkezdtem és befejeztem
 
+
+5.hét:
+
+  RSA:
+    Elekzdtem és befejeztem.
     
+ JDKosztalyok:
+     Elekzdtem és befejeztem.
+     
+  Változoargamentum szám:
+      Elekzdtem és befejeztem.
+
+
+
