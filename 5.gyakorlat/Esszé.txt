@@ -1,4 +1,4 @@
-Öröklõdés
+Öröklõdés = http://www.inf.u-szeged.hu/~antal/prog1gyak/gyak5/
 Ez elõzõ órán már találkoztunk az objektumorientáltság egyik alapfogalmával, az egységbezárással, 
 mely szerint az adatokat és rajtuk végzett mûveleteket egységbezártuk, egy osztályba.
  Ezen a gyakorlaton pedig megismerkedünk az UML-bõl már ismerõsen hangozható öröklõdéssel. Az öröklés osztályok között valósul meg, egy szülõ (õs, base, parent) és gyerek 
