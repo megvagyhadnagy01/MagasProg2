@@ -1,0 +1,107 @@
+Öröklõdés
+Ez elõzõ órán már találkoztunk az objektumorientáltság egyik alapfogalmával, az egységbezárással, 
+mely szerint az adatokat és rajtuk végzett mûveleteket egységbezártuk, egy osztályba.
+ Ezen a gyakorlaton pedig megismerkedünk az UML-bõl már ismerõsen hangozható öröklõdéssel. Az öröklés osztályok között valósul meg, egy szülõ (õs, base, parent) és gyerek 
+(leszármazott, derived) között.
+
+Ennek során a gyerek osztály örökli a szülõjének tulajdonságait és viselkedését. 
+Ez jó dolog, mert nem kell újra írnunk õket, viszont a szülõtõl örökölt egyes metódusokat speciálisabban is megvalósíthatjuk, felülírhatjuk õket(override), 
+vagy akár újakat is definiálhatunk.
+
+Javaban csak egyszeres öröklõdés van!
+
+Ez azt jelenti, hogy egy osztálynak nem lehet kettõ, vagy több szülõosztálya.
+ Azt viszont nem zárja ki, hogy egy osztálynak több gyerek osztálya legyen, vagy hogy a gyerek osztálynak lehessenek saját gyerek osztályai.
+
+Láthatóságok - protected
+Találkozhatunk egy új láthatósággal, amelynek neve protected. 
+Ennek a láthatóságnak segítségével biztosíthatjuk, hogy az egyes adattagok, metódusok a gyermekosztályok számára is láthatóak legyenek.
+ A láthatóságokról egy összefoglaló táblázat:
+A szülõosztályban nem szükséges módosításokat eszközölnünk, a gyerek osztályban viszont jeleznünk kell,
+ hogy melyik szülõosztályból származik az adott osztály. 
+Tekintsük az alábbi példát:
+public class Torta {
+    protected int szelet;
+    private String iz;
+
+    public String getIz() {
+        return iz;
+    }
+
+    public void setIz(String iz) {
+        this.iz = iz;
+    }
+
+    public Torta(int szelet, String iz) {
+        this.szelet = szelet;
+        this.iz = iz;
+    }
+
+    public void info() {
+        System.out.println("Ez a torta " + this.iz + " ízû, és "
+                + this.szelet + " szeletes.");
+    }
+}
+Extends, super
+Ez egy általános torta osztály, tudjuk, hogy egy torta milyen ízû és hogy hány szeletbõl áll.
+ Tortát bármilyen alkalomra vásárolhatunk, azonban lehetnek speciális alkalmak, amelyek esetében szeretnénk használni
+ a már megírt Torta osztályunkat, de szeretnénk új, speciálisabb adatokat, metódusokat létrehozni a tortáinknak. 
+Ilyen lehet például egy SzulinapiTorta osztály, amely torta, de szeretnénk egy új adatot is tárolni, mégpedig a rajta lévõ gyertyák darabszámát.
+
+extends - ezzel a kulcsszóval érhetjük el az öröklõdést, az osztály deklarációjában, az osztály neve után kell írnunk, majd az extends 
+kulcsszó után az õsosztály nevét írjuk.
+
+super - a gyerek osztályból hivatkozhatunk a szülõre, annak adattagjaira (amiket látunk) és metódusaira is, ezeket super.szuloMetodusanakNeve()-szerû parancsokkal
+ érhetjük el.
+A szülõ konstruktora pedig egyszerûen a super kulcsszó metódusként való használatával érhetõ el, például:
+
+
+super(szelet, iz);
+Ha az õsosztály paraméter nélküli konstruktorát szeretnénk meghívni, akkor a super(); hívás a gyermek osztály konstruktorában elhagyható.
+Ha nem a default konstruktorát használjuk az õsosztálynak, akkor viszont kötelezõ a super(arg1,arg2...argn); meghívása a gyerekosztály konstruktorában!
+
+A gyerekosztályban láthatjuk, hogy az õsbõl örökölt info() metódust felüldefiniáltuk (override), annak egy speciálisabb mûködést adtunk.
+
+Polimorfizmus - Többalakúság
+A gyerek osztály egy példánya kezelhetõ a szülõ egy példányaként is, egy SzülinapiTorta objektumot tárolhatunk Torta példányként is (azaz egy Torta típusú referenciában), sõt akár egy õs típusú tömbben eltárolhatjuk az õs és gyerektípusokat vegyesen. Azonban, ha õs típusként tárolunk egy gyerek típusú objektumot, akkor a gyerek típusú objektum saját osztályában definiált metódusait nem látjuk. Például:
+
+
+public class TortaMain {
+    public static void main(String[] args) {
+        Torta csokiTorta = new SzulinapiTorta(15, "csoki", 9);
+        csokiTorta.kivansagotTeljesit();    // Ez nem fog mûködni
+    }
+}
+A fenti kódrészlet nem mûködik, mert az átlagos Torta nem tud kívánságot teljesíteni. Mivel egy Torta referenciában tároljuk a SzülinapiTorta objektumot, így csak a Tortában definiált metódusokat használhatjuk! Ennek kiküszöbölésére késõbb látni fogunk egy módszert.
+
+Ugyanígy nem lehetne a gyertyák számát lekérni vagy módosítani sem (még akkor sem, ha public láthatóságú lenne ez az adattag), mert az érintett Torta nem biztos, hogy rendelkezik ilyen adattaggal.
+
+
+Torta[] cukraszda = new Torta[3];
+cukraszda[0] = new Torta(20, "csokis-meggyes");
+cukraszda[1] = new Torta(12, "epres");
+cukraszda[2] = new SzulinapiTorta(12, "karamell", 12);
+Fordításkor még nem tudjuk, hogy a Torta tömbbe milyen típusú objektumok lesznek: 
+Torta objektumok, vagy pedig SzulinapiTorta objektumok, esetleg vegyesen, hiszen megtehetjük, hogy egy tömbbe gyerek típusokat teszünk. 
+Viszont, ha meghívjuk mindegyik elem info() metódusát, azt látjuk, hogy a sima torták esetében a Torta osztályban definiált metódus fut le, míg a születésnapi torta esetében a SzulinapiTorta osztályban definiált info() metódus hívódik meg. Ennek oka pedig a kései kötés (late binding). A kései és korai kötésrõl bõvebben itt és itt olvashatsz.
+
+
+for (int i = 0; i < cukraszda.length; i++) {
+    cukraszda[i].info();
+}
+Ennek kimenete:
+
+
+Ez a torta csokis-meggyes ízû, és 20 szeletes.
+Ez a torta epres ízû, és 12 szeletes.
+Ez a szülinapi torta karamell ízû, és 12 szeletes. 12 db gyertya van rajta
+Ahogy említettük, a gyerek típus kezelhetõ õsként, viszont ez fordítva nem mûködik! SzülinapiTorta tömbbe nem tehetünk õs típusú, azaz sima Torta objektumokat.
+
+Final
+Ha egy osztály final, akkor nem lehet gyereke. Ha egy metódus final, akkor nem lehet felülírni gyerekben.
+
+
+final class EskuvoiTorta extends Torta {
+}
+Ennek jelentése, hogy az EskuvoiTorta osztályból nem származhat gyerekosztály. Errõl bõvebben itt és itt olvashatsz.
+
