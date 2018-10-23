@@ -1,0 +1,12 @@
+Tabella
+Az interfész állandókból és módszertani nyilatkozatokból áll. Az Comparable<T>interfész csak egy módszerbõl áll (és nincsenek konstansok)
+. Például, ha az objektumok Strings, akkor Taz String. Strings implementálja az Comparable<String> interfészt.
+Ha egy objektum egy olyan osztály, amely végrehajtja Comparable, akkor ez az objektum kisebb , egyenlõ vagy nagyobb, 
+mint az adott osztály bármely objektuma. compareTo() egy egész számot jelenít meg annak bemutatására, hogy a három kapcsolat közül melyik.
+ 	Kapcsolat	 	objectA.compareTo (objectB)
+objectA	| Kevesebb, mint |	objectB	Negatív egész szám
+objectA	| Egyenlõ |	objectB	Nulla
+objectA	| Nagyobb, mint |	objectB	Pozitív egész szám
+A StringA kevesebb, mint a StringB, ha a StringA folytatódik a StringB egy szótárban. Például,
+Csak a visszatérõ egész szám jelzi, ha a visszatérési érték nem nulla. A visszaadott egész szám nagysága nem jelent semmit.
+
