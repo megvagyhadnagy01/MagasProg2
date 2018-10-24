@@ -68,7 +68,7 @@ A feladatok fennt vannak a repóban, hetekre bontva.
 
   Leettranslator:
     Elkezdtem és befejeztem
-
+------------------------------------------
 
 5.hét:
 
@@ -81,9 +81,12 @@ A feladatok fennt vannak a repóban, hetekre bontva.
   Változoargamentum szám:
       Elekzdtem és befejeztem.
       
+  Mássolo és mozgato konst.:
+      Elekdztem és befejeztem.
+      
  Összefoglaló:
          Elekdztem és (még nem) fejeztembe.
-
+----------------------------------------------------
 6.hét
 
   Alternativ tabella rendezés:
