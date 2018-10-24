@@ -1,0 +1,7 @@
+Ezt böveben az összefoglalás részben fejtetem ki.
+Létrehoztam egy Alma classt. Az alma classnak van egy körte pointere. Az A2re meghivtam a copy 
+	constructort és cout-oltam egy stringet.
+	Ezután az a-ra meghivtam a move constructort.
+	A move átrakja a pointert és nem átmásolja és az áthelyezés után a a-nak nem lesz semmilyen adata.
+	A másoló konstruktor lefoglalja az objektum működéséhez szügséges 
+majd az objektumunknak egy másolatát hozza létre
