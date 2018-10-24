@@ -1,25 +1,25 @@
-Öröklõdés = http://www.inf.u-szeged.hu/~antal/prog1gyak/gyak5/
-Ez elõzõ órán már találkoztunk az objektumorientáltság egyik alapfogalmával, az egységbezárással, 
-mely szerint az adatokat és rajtuk végzett mûveleteket egységbezártuk, egy osztályba.
- Ezen a gyakorlaton pedig megismerkedünk az UML-bõl már ismerõsen hangozható öröklõdéssel. Az öröklés osztályok között valósul meg, egy szülõ (õs, base, parent) és gyerek 
-(leszármazott, derived) között.
+JDK osztÃ¡lyok Az 5 hÃ©t 1 feladata
+A 
+mely szerint az adatokat Ã©s rajtuk vÃ©gzett mÅ±veleteket egysÃ©gbezÃ¡rtuk, egy osztÃ¡lyba.
+ Ezen a gyakorlaton pedig megismerkedÃ¼nk az UML-bÅ‘l mÃ¡r ismerÅ‘sen hangozhatÃ³ Ã¶rÃ¶klÅ‘dÃ©ssel. Az Ã¶rÃ¶klÃ©s osztÃ¡lyok kÃ¶zÃ¶tt valÃ³sul meg, egy szÃ¼lÅ‘ (Å‘s, base, parent) Ã©s gyerek 
+(leszÃ¡rmazott, derived) kÃ¶zÃ¶tt.
 
-Ennek során a gyerek osztály örökli a szülõjének tulajdonságait és viselkedését. 
-Ez jó dolog, mert nem kell újra írnunk õket, viszont a szülõtõl örökölt egyes metódusokat speciálisabban is megvalósíthatjuk, felülírhatjuk õket(override), 
-vagy akár újakat is definiálhatunk.
+Ennek sorÃ¡n a gyerek osztÃ¡ly Ã¶rÃ¶kli a szÃ¼lÅ‘jÃ©nek tulajdonsÃ¡gait Ã©s viselkedÃ©sÃ©t. 
+Ez jÃ³ dolog, mert nem kell Ãºjra Ã­rnunk Å‘ket, viszont a szÃ¼lÅ‘tÅ‘l Ã¶rÃ¶kÃ¶lt egyes metÃ³dusokat speciÃ¡lisabban is megvalÃ³sÃ­thatjuk, felÃ¼lÃ­rhatjuk Å‘ket(override), 
+vagy akÃ¡r Ãºjakat is definiÃ¡lhatunk.
 
-Javaban csak egyszeres öröklõdés van!
+Javaban csak egyszeres Ã¶rÃ¶klÅ‘dÃ©s van!
 
-Ez azt jelenti, hogy egy osztálynak nem lehet kettõ, vagy több szülõosztálya.
- Azt viszont nem zárja ki, hogy egy osztálynak több gyerek osztálya legyen, vagy hogy a gyerek osztálynak lehessenek saját gyerek osztályai.
+Ez azt jelenti, hogy egy osztÃ¡lynak nem lehet kettÅ‘, vagy tÃ¶bb szÃ¼lÅ‘osztÃ¡lya.
+ Azt viszont nem zÃ¡rja ki, hogy egy osztÃ¡lynak tÃ¶bb gyerek osztÃ¡lya legyen, vagy hogy a gyerek osztÃ¡lynak lehessenek sajÃ¡t gyerek osztÃ¡lyai.
 
-Láthatóságok - protected
-Találkozhatunk egy új láthatósággal, amelynek neve protected. 
-Ennek a láthatóságnak segítségével biztosíthatjuk, hogy az egyes adattagok, metódusok a gyermekosztályok számára is láthatóak legyenek.
- A láthatóságokról egy összefoglaló táblázat:
-A szülõosztályban nem szükséges módosításokat eszközölnünk, a gyerek osztályban viszont jeleznünk kell,
- hogy melyik szülõosztályból származik az adott osztály. 
-Tekintsük az alábbi példát:
+LÃ¡thatÃ³sÃ¡gok - protected
+TalÃ¡lkozhatunk egy Ãºj lÃ¡thatÃ³sÃ¡ggal, amelynek neve protected. 
+Ennek a lÃ¡thatÃ³sÃ¡gnak segÃ­tsÃ©gÃ©vel biztosÃ­thatjuk, hogy az egyes adattagok, metÃ³dusok a gyermekosztÃ¡lyok szÃ¡mÃ¡ra is lÃ¡thatÃ³ak legyenek.
+ A lÃ¡thatÃ³sÃ¡gokrÃ³l egy Ã¶sszefoglalÃ³ tÃ¡blÃ¡zat:
+A szÃ¼lÅ‘osztÃ¡lyban nem szÃ¼ksÃ©ges mÃ³dosÃ­tÃ¡sokat eszkÃ¶zÃ¶lnÃ¼nk, a gyerek osztÃ¡lyban viszont jeleznÃ¼nk kell,
+ hogy melyik szÃ¼lÅ‘osztÃ¡lybÃ³l szÃ¡rmazik az adott osztÃ¡ly. 
+TekintsÃ¼k az alÃ¡bbi pÃ©ldÃ¡t:
 public class Torta {
     protected int szelet;
     private String iz;
@@ -38,52 +38,52 @@ public class Torta {
     }
 
     public void info() {
-        System.out.println("Ez a torta " + this.iz + " ízû, és "
+        System.out.println("Ez a torta " + this.iz + " Ã­zÅ±, Ã©s "
                 + this.szelet + " szeletes.");
     }
 }
 Extends, super
-Ez egy általános torta osztály, tudjuk, hogy egy torta milyen ízû és hogy hány szeletbõl áll.
- Tortát bármilyen alkalomra vásárolhatunk, azonban lehetnek speciális alkalmak, amelyek esetében szeretnénk használni
- a már megírt Torta osztályunkat, de szeretnénk új, speciálisabb adatokat, metódusokat létrehozni a tortáinknak. 
-Ilyen lehet például egy SzulinapiTorta osztály, amely torta, de szeretnénk egy új adatot is tárolni, mégpedig a rajta lévõ gyertyák darabszámát.
+Ez egy Ã¡ltalÃ¡nos torta osztÃ¡ly, tudjuk, hogy egy torta milyen Ã­zÅ± Ã©s hogy hÃ¡ny szeletbÅ‘l Ã¡ll.
+ TortÃ¡t bÃ¡rmilyen alkalomra vÃ¡sÃ¡rolhatunk, azonban lehetnek speciÃ¡lis alkalmak, amelyek esetÃ©ben szeretnÃ©nk hasznÃ¡lni
+ a mÃ¡r megÃ­rt Torta osztÃ¡lyunkat, de szeretnÃ©nk Ãºj, speciÃ¡lisabb adatokat, metÃ³dusokat lÃ©trehozni a tortÃ¡inknak. 
+Ilyen lehet pÃ©ldÃ¡ul egy SzulinapiTorta osztÃ¡ly, amely torta, de szeretnÃ©nk egy Ãºj adatot is tÃ¡rolni, mÃ©gpedig a rajta lÃ©vÅ‘ gyertyÃ¡k darabszÃ¡mÃ¡t.
 
-extends - ezzel a kulcsszóval érhetjük el az öröklõdést, az osztály deklarációjában, az osztály neve után kell írnunk, majd az extends 
-kulcsszó után az õsosztály nevét írjuk.
+extends - ezzel a kulcsszÃ³val Ã©rhetjÃ¼k el az Ã¶rÃ¶klÅ‘dÃ©st, az osztÃ¡ly deklarÃ¡ciÃ³jÃ¡ban, az osztÃ¡ly neve utÃ¡n kell Ã­rnunk, majd az extends 
+kulcsszÃ³ utÃ¡n az Å‘sosztÃ¡ly nevÃ©t Ã­rjuk.
 
-super - a gyerek osztályból hivatkozhatunk a szülõre, annak adattagjaira (amiket látunk) és metódusaira is, ezeket super.szuloMetodusanakNeve()-szerû parancsokkal
- érhetjük el.
-A szülõ konstruktora pedig egyszerûen a super kulcsszó metódusként való használatával érhetõ el, például:
+super - a gyerek osztÃ¡lybÃ³l hivatkozhatunk a szÃ¼lÅ‘re, annak adattagjaira (amiket lÃ¡tunk) Ã©s metÃ³dusaira is, ezeket super.szuloMetodusanakNeve()-szerÅ± parancsokkal
+ Ã©rhetjÃ¼k el.
+A szÃ¼lÅ‘ konstruktora pedig egyszerÅ±en a super kulcsszÃ³ metÃ³duskÃ©nt valÃ³ hasznÃ¡latÃ¡val Ã©rhetÅ‘ el, pÃ©ldÃ¡ul:
 
 
 super(szelet, iz);
-Ha az õsosztály paraméter nélküli konstruktorát szeretnénk meghívni, akkor a super(); hívás a gyermek osztály konstruktorában elhagyható.
-Ha nem a default konstruktorát használjuk az õsosztálynak, akkor viszont kötelezõ a super(arg1,arg2...argn); meghívása a gyerekosztály konstruktorában!
+Ha az Å‘sosztÃ¡ly paramÃ©ter nÃ©lkÃ¼li konstruktorÃ¡t szeretnÃ©nk meghÃ­vni, akkor a super(); hÃ­vÃ¡s a gyermek osztÃ¡ly konstruktorÃ¡ban elhagyhatÃ³.
+Ha nem a default konstruktorÃ¡t hasznÃ¡ljuk az Å‘sosztÃ¡lynak, akkor viszont kÃ¶telezÅ‘ a super(arg1,arg2...argn); meghÃ­vÃ¡sa a gyerekosztÃ¡ly konstruktorÃ¡ban!
 
-A gyerekosztályban láthatjuk, hogy az õsbõl örökölt info() metódust felüldefiniáltuk (override), annak egy speciálisabb mûködést adtunk.
+A gyerekosztÃ¡lyban lÃ¡thatjuk, hogy az Å‘sbÅ‘l Ã¶rÃ¶kÃ¶lt info() metÃ³dust felÃ¼ldefiniÃ¡ltuk (override), annak egy speciÃ¡lisabb mÅ±kÃ¶dÃ©st adtunk.
 
-Polimorfizmus - Többalakúság
-A gyerek osztály egy példánya kezelhetõ a szülõ egy példányaként is, egy SzülinapiTorta objektumot tárolhatunk Torta példányként is (azaz egy Torta típusú referenciában), sõt akár egy õs típusú tömbben eltárolhatjuk az õs és gyerektípusokat vegyesen. Azonban, ha õs típusként tárolunk egy gyerek típusú objektumot, akkor a gyerek típusú objektum saját osztályában definiált metódusait nem látjuk. Például:
+Polimorfizmus - TÃ¶bbalakÃºsÃ¡g
+A gyerek osztÃ¡ly egy pÃ©ldÃ¡nya kezelhetÅ‘ a szÃ¼lÅ‘ egy pÃ©ldÃ¡nyakÃ©nt is, egy SzÃ¼linapiTorta objektumot tÃ¡rolhatunk Torta pÃ©ldÃ¡nykÃ©nt is (azaz egy Torta tÃ­pusÃº referenciÃ¡ban), sÅ‘t akÃ¡r egy Å‘s tÃ­pusÃº tÃ¶mbben eltÃ¡rolhatjuk az Å‘s Ã©s gyerektÃ­pusokat vegyesen. Azonban, ha Å‘s tÃ­puskÃ©nt tÃ¡rolunk egy gyerek tÃ­pusÃº objektumot, akkor a gyerek tÃ­pusÃº objektum sajÃ¡t osztÃ¡lyÃ¡ban definiÃ¡lt metÃ³dusait nem lÃ¡tjuk. PÃ©ldÃ¡ul:
 
 
 public class TortaMain {
     public static void main(String[] args) {
         Torta csokiTorta = new SzulinapiTorta(15, "csoki", 9);
-        csokiTorta.kivansagotTeljesit();    // Ez nem fog mûködni
+        csokiTorta.kivansagotTeljesit();    // Ez nem fog mÅ±kÃ¶dni
     }
 }
-A fenti kódrészlet nem mûködik, mert az átlagos Torta nem tud kívánságot teljesíteni. Mivel egy Torta referenciában tároljuk a SzülinapiTorta objektumot, így csak a Tortában definiált metódusokat használhatjuk! Ennek kiküszöbölésére késõbb látni fogunk egy módszert.
+A fenti kÃ³drÃ©szlet nem mÅ±kÃ¶dik, mert az Ã¡tlagos Torta nem tud kÃ­vÃ¡nsÃ¡got teljesÃ­teni. Mivel egy Torta referenciÃ¡ban tÃ¡roljuk a SzÃ¼linapiTorta objektumot, Ã­gy csak a TortÃ¡ban definiÃ¡lt metÃ³dusokat hasznÃ¡lhatjuk! Ennek kikÃ¼szÃ¶bÃ¶lÃ©sÃ©re kÃ©sÅ‘bb lÃ¡tni fogunk egy mÃ³dszert.
 
-Ugyanígy nem lehetne a gyertyák számát lekérni vagy módosítani sem (még akkor sem, ha public láthatóságú lenne ez az adattag), mert az érintett Torta nem biztos, hogy rendelkezik ilyen adattaggal.
+UgyanÃ­gy nem lehetne a gyertyÃ¡k szÃ¡mÃ¡t lekÃ©rni vagy mÃ³dosÃ­tani sem (mÃ©g akkor sem, ha public lÃ¡thatÃ³sÃ¡gÃº lenne ez az adattag), mert az Ã©rintett Torta nem biztos, hogy rendelkezik ilyen adattaggal.
 
 
 Torta[] cukraszda = new Torta[3];
 cukraszda[0] = new Torta(20, "csokis-meggyes");
 cukraszda[1] = new Torta(12, "epres");
 cukraszda[2] = new SzulinapiTorta(12, "karamell", 12);
-Fordításkor még nem tudjuk, hogy a Torta tömbbe milyen típusú objektumok lesznek: 
-Torta objektumok, vagy pedig SzulinapiTorta objektumok, esetleg vegyesen, hiszen megtehetjük, hogy egy tömbbe gyerek típusokat teszünk. 
-Viszont, ha meghívjuk mindegyik elem info() metódusát, azt látjuk, hogy a sima torták esetében a Torta osztályban definiált metódus fut le, míg a születésnapi torta esetében a SzulinapiTorta osztályban definiált info() metódus hívódik meg. Ennek oka pedig a kései kötés (late binding). A kései és korai kötésrõl bõvebben itt és itt olvashatsz.
+FordÃ­tÃ¡skor mÃ©g nem tudjuk, hogy a Torta tÃ¶mbbe milyen tÃ­pusÃº objektumok lesznek: 
+Torta objektumok, vagy pedig SzulinapiTorta objektumok, esetleg vegyesen, hiszen megtehetjÃ¼k, hogy egy tÃ¶mbbe gyerek tÃ­pusokat teszÃ¼nk. 
+Viszont, ha meghÃ­vjuk mindegyik elem info() metÃ³dusÃ¡t, azt lÃ¡tjuk, hogy a sima tortÃ¡k esetÃ©ben a Torta osztÃ¡lyban definiÃ¡lt metÃ³dus fut le, mÃ­g a szÃ¼letÃ©snapi torta esetÃ©ben a SzulinapiTorta osztÃ¡lyban definiÃ¡lt info() metÃ³dus hÃ­vÃ³dik meg. Ennek oka pedig a kÃ©sei kÃ¶tÃ©s (late binding). A kÃ©sei Ã©s korai kÃ¶tÃ©srÅ‘l bÅ‘vebben itt Ã©s itt olvashatsz.
 
 
 for (int i = 0; i < cukraszda.length; i++) {
@@ -92,16 +92,16 @@ for (int i = 0; i < cukraszda.length; i++) {
 Ennek kimenete:
 
 
-Ez a torta csokis-meggyes ízû, és 20 szeletes.
-Ez a torta epres ízû, és 12 szeletes.
-Ez a szülinapi torta karamell ízû, és 12 szeletes. 12 db gyertya van rajta
-Ahogy említettük, a gyerek típus kezelhetõ õsként, viszont ez fordítva nem mûködik! SzülinapiTorta tömbbe nem tehetünk õs típusú, azaz sima Torta objektumokat.
+Ez a torta csokis-meggyes Ã­zÅ±, Ã©s 20 szeletes.
+Ez a torta epres Ã­zÅ±, Ã©s 12 szeletes.
+Ez a szÃ¼linapi torta karamell Ã­zÅ±, Ã©s 12 szeletes. 12 db gyertya van rajta
+Ahogy emlÃ­tettÃ¼k, a gyerek tÃ­pus kezelhetÅ‘ Å‘skÃ©nt, viszont ez fordÃ­tva nem mÅ±kÃ¶dik! SzÃ¼linapiTorta tÃ¶mbbe nem tehetÃ¼nk Å‘s tÃ­pusÃº, azaz sima Torta objektumokat.
 
 Final
-Ha egy osztály final, akkor nem lehet gyereke. Ha egy metódus final, akkor nem lehet felülírni gyerekben.
+Ha egy osztÃ¡ly final, akkor nem lehet gyereke. Ha egy metÃ³dus final, akkor nem lehet felÃ¼lÃ­rni gyerekben.
 
 
 final class EskuvoiTorta extends Torta {
 }
-Ennek jelentése, hogy az EskuvoiTorta osztályból nem származhat gyerekosztály. Errõl bõvebben itt és itt olvashatsz.
+Ennek jelentÃ©se, hogy az EskuvoiTorta osztÃ¡lybÃ³l nem szÃ¡rmazhat gyerekosztÃ¡ly. ErrÅ‘l bÅ‘vebben itt Ã©s itt olvashatsz.
 
