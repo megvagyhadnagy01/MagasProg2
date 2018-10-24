@@ -80,6 +80,21 @@ A feladatok fennt vannak a repóban, hetekre bontva.
      
   Változoargamentum szám:
       Elekzdtem és befejeztem.
+      
+ Összefoglaló:
+         Elekdztem és (még nem) fejeztembe.
 
+6.hét
 
+  Alternativ tabella rendezés:
+    Elekzdtem és befejeztem.
+    
+    C++11 Custom Allocator:
+      Elekdztem és befejeztem.
+      
+      STL map érték szerinti rendezése:
+      Elkezdtem és befejeztem.
+      
+      Összefoglaló:
+         Elekdztem és (még nem) fejeztembe.
 
