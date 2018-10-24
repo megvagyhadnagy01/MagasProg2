@@ -1,0 +1,5 @@
+Rsa 
+Itt léányegében hibást /tört kodból kell implementálni titkositot sz9veget.
+Az elöadás foliája alapján igyekeztem létrehozni akodomat meklyben arrayben tároltam a tisztaszioveget 
+melyet a lenght fügvényel összeszámoltam és azt bevittem egy for fügvénybe a java.math.BitEngert
+Majd a dekodolásnál pedig for fügvéynel teszteltem a java.maodPow használtam.
