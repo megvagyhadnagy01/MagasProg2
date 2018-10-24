@@ -1,0 +1,20 @@
+JDK osztályok
+
+Az 5. hét legelsõ feladata egy olyan Boost C++ program írása, amely kilistázza a JDK összes osztályát az src mappából.
+A Boost egy olyan open-source C++ könyvtárak összessége, amelyek kiegészítik a C++ Standard Template Library-t.
+ Elõnye, hogy rengeteg különbözõ könyvtárból áll, amiket egymástól függetlenül lehet használni, így a forráskódban
+ elég azt a könyvtárat includeolni, amelyet ténylegesen használ a kód.
+Az src könyvtárban alkönyvtárak találhatóak, ezeken belül pedig vagy további alkönyvtárak, vagy pedig .java kiterjesztésû fájlok vannak.
+ A .java fájlok egy-egy JDK osztálynak felelnek meg, tehát ezeket fájlokat kell a programnak a Boost.Filesystem könyvtár segítségével kilistáznia.
+ Ezt az alábbi módon lehet megvalósítani:
+Elõször deklarálunk egy std::string típusú path változót, ami az aktuálisan talált elérési útvonalat fogja tárolni, illetve egy namelist nevû vektort,
+ ami std::string típusú elemeket tárol, ez fogja tartalmazni a JDK osztályok neveinek a listáját. 
+A Boost.Filesystem könyvtárban definiált osztályok felhasználásával meg tudjuk adni a vizsgálandó könyvtár elérési útját (boost::filesystem:path alkalmazásával),
+ amely jelen esetben ./src, azaz az src könyvtár a forráskóddal közös könyvtárban van. Ezután a rekurzív könyvtár iteráló osztály (boost::filesystem:recursive_directory_iterator),
+ a könyvtár bejegyzések vektor (std::vector <boost::filesystem:directory_entry>) és egy range-based for ciklus segítségével végigiterálunk a teljes könyvtáron.
+ A for cikluson belül a talált elérési útvonalat a path nevû stringben tároljuk, majd kiválogatjuk közülük azokat, amelyek “.java”-ra végzõdnek. 
+Az így kapott megfelelõ végzõdésû stringeken további mûveleteket végzünk el: elõször egy új std::string típusú,
+ extractfile nevû változóban tároljuk a teljes elérési útból string::substr segítségével kivágott fájlnév stringet, ehhez meg kell keresni az elérési útban
+ található legutolsó ‘/’ jelet. Majd a kapott fájlnévbõl kivágjuk ismét string::substr alkalmazásával a .java végzõdést. Az eredmény egy extractname nevû, std::string típusú változó,
+ amely már csak az adott JDK osztály nevét tartalmazza, ezek összességét pedig a már korábban deklarált namelist nevû vektorban tároljuk. 
+Miután a for ciklus a könyvtárak végére ért, a fájlneveket tartalmazó vektort ábécé-sorrendbe rendezzük (std::sort használatával), és egy további range-based for ciklus segítségével kiíratjuk ennek a namelist vektornak az elemeit.
