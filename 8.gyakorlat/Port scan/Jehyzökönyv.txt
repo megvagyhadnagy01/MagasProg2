@@ -1,0 +1,14 @@
+A program végigzongorázza a parancssorában megkapott nevû gép 1024 alatti számú TCP kapuit: megpróbál egy TCP kapcsolatot létrehozni, 
+ha sikerül, akkor a célporton ül egy szerver folyamat, ha nem, azaz ha kivétel keletkezik, akkor nem. 
+Egyébként siker esetén sem csinálunk semmit, hanem csak bezárjuk az éppen elkészített kliensoldali kommunikációs 
+végpontot reprezentáló socket objektumot.
+
+A TCP kapcsolatot a Socket osztály segítségével történik.
+
+Mi a következõ konstruktort használjuk: Socket(String host, int port)
+Az elsõ egy string, jelen esetben a programunk neve, amelyet meg kell adnunk a futtatás során elsõ paraméterként.
+
+A 2. paraméter egy portszám.
+A program for ciklusa 1023-ig próbálja végig a portokat.
+Nem véletlenül! Ezek az ún. "jól ismert" portok.
+Ezek azok a portok, amelyekhez tartoznak a nyílvános hálózati szolgáltatások, például FTP, HTTPS, DNS.
