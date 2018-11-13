@@ -1,12 +1,37 @@
+8.hét Port Scan
+A feladat egy olyan program létrehozása amely megnézi ,hogy a vasunk éppen milyen portokat figyelmeg.
+
 A program végigzongorázza a parancssorában megkapott nevû gép 1024 alatti számú TCP kapuit: megpróbál egy TCP kapcsolatot létrehozni, 
 ha sikerül, akkor a célporton ül egy szerver folyamat, ha nem, azaz ha kivétel keletkezik, akkor nem. 
 Egyébként siker esetén sem csinálunk semmit, hanem csak bezárjuk az éppen elkészített kliensoldali kommunikációs 
 végpontot reprezentáló socket objektumot.
+[norbi@omega ~]$ java KapuSzkenner niobe
+.
+.
+.
+19 nem figyeli
+20 nem figyeli
+21 figyeli
+22 figyeli
+23 nem figyeli
+24 nem figyeli
+25 figyeli
+26 nem figyeli
+.
+.
+.
+79 nem figyeli
+80 figyeli
+81 nem figyeli
+82 nem figyeli
+.
+.
+.
 
 A TCP kapcsolatot a Socket osztály segítségével történik.
 
 Mi a következõ konstruktort használjuk: Socket(String host, int port)
-Az elsõ egy string, jelen esetben a programunk neve, amelyet meg kell adnunk a futtatás során elsõ paraméterként.
+Az elsõ egy string,ebben az esetben a program neve, megkell adni futatás során elsö paraméterként.
 
 A 2. paraméter egy portszám.
 A program for ciklusa 1023-ig próbálja végig a portokat.
