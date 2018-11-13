@@ -1,0 +1,31 @@
+A formázott adatbeolvasást a scanf függvény segítségével tehetjük meg. A függvény általános formája a következõ:
+scanf(formátum, argumentumlista)
+
+A scanf karaktereket olvas a standard bemenetrõl, majd a formátum alapján értelmezi azokat, és ha a beolvasott karakterek megfelelõk, 
+akkor konvertálja õket, és értékül adja a megfelelõ változónak.
+A visszatérési érték a sikeresen beolvasott adatok számát adja vissza. 
+
+Az argumentumlista már létezõ/lefoglalt objektumokra mutató címeket tartalmaz, mégpedig azért, 
+mert a függvény segítségével értéket akarunk adni a már meglévõ változóknak.
+
+Az sscanf függvény, amelyet mi is használunk, annyiban tér el az scanf függvénytõl, hogy ott meg kell adni, 
+milyen input streamrõl akarunk olvasni.
+Tehát az scanf függvény az sscanf függvény standard bemeneti olvasással. 
+
+-------------------------------------------------------------------------------------------------------
+
+Miért használjuk?
+A definíciója már választ ad erre, de konkrétan mintaillesztést próbálunk elvégezni.
+A mintaillesztés mellett még bizonyos értékeket is kinyerünk vele, amelyre szükségünk lehet.
+
+A felismerendõ "kifejezéseket" a shmclient.cpp generálja.
+
+Hogyan használjuk?
+A lexer is segítségünkre van ebben. A lexernek köszönhetõen már biztosan tudjuk, mikor milyen "mintára" kell illeszteni a bejövõ adatfolyamot.
+Ezért is látunk minden lexer kifejezésben csak 1 db. sscanf függvényt.
+
+Ekkor már csak a változóknak adunk értéket.
+
+Miért fontos ez?
+Ezeknek a változóknak az értékeit használjuk fel a lexerhez tartozó carlexer.hpp-ben.
+Ebben a carlexer.hpp-ben definiálunk bizonyos függvényeket, amelyek a robotautó projekt szerves részét képezik.
