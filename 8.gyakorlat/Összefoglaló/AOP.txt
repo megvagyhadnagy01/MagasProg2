@@ -1,0 +1,18 @@
+. Aspektusok
+Ahogy a számítógépes programok nõttek, úgy vált egyre súlyosabb problémává ezen programok áttekinthetõsége, karbantarthatósága és újrafelhasználhatósága.
+ A kezdeti magas szintû nyelvek (pl. FORTRAN) az assembly nyelvek szerkezetét másolták. A goto utasításokkal teletûzdelt "spagetti kód" érthetetlensége
+ hozta a strukturális nyelveket, amelyeknek legfontosabb élõ tagja a C. Ezen nyelvek használata nyílt, jól definiált interfészeket és jól körülhatárolt
+ modulokat eredményezhet, amelyek az olvashatóságot és az újrahasználhatóságot nagyban megnövelik. Problémájuk, hogy az implementáció viszonylag nyílt
+ a programozó számára (nincs adat- és kódrejtés) valamint a bõvítéshez hozzá kell nyúlni a modulhoz.
+
+Az objektumorientált nyelvek mindkét problémára választ adnak. Ezen nyelvek adat- és kódrejtési szolgáltatásaival pontosan meghatározhatjuk, 
+mit teszünk láthatóvá más modulok számára, az öröklõdési szolgáltatásokkal pedig úgy bõvíthetjük az eredeti modulokat, hogy azok implementációjához nem kell hozzányúljunk.
+
+Az  objektumorientált programozás széleskörû elterjedése mégse hozta meg a modularizáció kívánt fokát. Ennek oka több kutató szerint az átmetszõ követelmények 
+(crosscutting concerns) jelenléte. Átmetszõ követelmény az, ami a szoftver választott modularizációjában nem fogható meg egy modul által.
+ Minthogy a modularizáció általában a funkció függvénye, ezek tipikusan nem funkcionális követelmények vagy pedig olyan funkcionális követelmények,
+ amelyek az eredeti funkcionális dekompozíciónál nem voltak ismertek és a jelenlegi modulszerkezetben nem helyezhetõk el egy modulként.
+ Hipermetszeres ismereteinket felhasználva azt is mondhatjuk, hogy az átmetszõ követelmény hipermetszete a domináns dekompozíció hipermetszetére vetítve nem modularizálható. 
+
+
+Varga S.Mátyás
