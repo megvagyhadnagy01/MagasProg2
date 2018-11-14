@@ -1,0 +1,45 @@
+JUnit tesztek
+A JUnit tesztek a junit.framework.TestCase leszármazottjai, és a tesztelendõ kódot
+ publikus
+testValami() nevû metódusokban adjuk meg. (Valami tetszõleges azonosító lehet.)
+A teszt futása során az összes ilyen metódus futtatásra kerül, amelynek háromféle
+eredménye
+lehet:
+• Sikeres végrehajtás(pass): ez azt jelenti, hogy a teszt rendben lefutott, és az
+ ellenõrzési
+feltételek mind teljesültek.
+• Sikertelen végrehajtás(failure): a teszt lefutott, de valamelyik ellenõrzési
+ feltétel
+nem teljesült.
+• Hiba(error): A teszt futása során valami komolyabb hiba merült fel, például egy
+Exception dobódott valamelyik tesztmetódus futása során, vagy nem volt tesztmetódus
+a megadott tesztosztályban.
+Az alábbiakban példákon keresztül mutatjuk be hogyan kell JUnit teszteket írni.
+Az assertTrue metódus ellenõrzi, hogy a paraméterében megadott kifejezés igaz-e. Ha
+nem, akkor hibát jelez a tesztelési rendszernek. Az alábbi táblázat bemutatja, milyen
+egyéb ellenõrzõ metódusok állnak rendelkezésre JUnit tesztjeinkben:
+Metódus Leírás
+assertTrue(boolean) Ellenõrzi, hogy a paraméter igaz-e.
+assertFalse(boolean) Ellenõrzi, hogy a paraméter hamis-e.
+assertNull(Object) Ellenõrzi, hogy a paraméter null-e.
+assertNotNull(Object) Ellenõrzi, hogy a paraméter nem null.
+assertSame(Object, Object) Ellenõrzi, hogy a két paraméter
+ugyanarra az objektumra mutat-e.
+assertNotSame(Object, Object) Ellenõrzi, hogy a két paraméter különbözõ
+objektumra mutat-e.
+assertEquals(int, int) Ellenõrzi, hogy a két paraméter
+egyenlõ-e. (Az összes primitív típushoz
+létezik változata.)
+assertEquals(double, double, double) Ellenõrzi, hogy a két double paraméter
+egyenlõ-e a megadott tolerancián belül.
+(A tolerancia a harmadik double paraméter.)
+assertEquals(Object, Object) Ellenõrzi, hogy a két paraméter
+egyenlõ-e. (Az equals() metódust
+használva.)
+fail() A tesztet azonnal sikertelenné
+teszi(megbuktatja).
+Az összes, assert-tel kezdõdõ nevû ellenõrzõ metódusnak van olyan változata is, amelynek
+az elsõ paramétere egy hibaüzenet. Ezt a tesztelõ környezet írja ki akkor, amikor a
+teszt megbukik (azaz nem teljesül a feltétel). Így a fenti assert sort a következõképpen is
+írhattuk volna:
+assertTrue("Az új hashtábla nem üres!", ht.isEmpty());
