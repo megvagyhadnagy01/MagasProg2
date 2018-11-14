@@ -1,0 +1,29 @@
+A jelek és a rések az objektumok közötti kommunikációra használatosak. A jelek és a rés mechanizmusa a Qt központi eleme, és valószínûleg
+ a más keretek által nyújtott jellemzõktõl leginkább eltéro rész.A slot-signal mechanizmus a Qt központi eleme/funkciója.
+A Qt-ban az objektumok képesek magukból signal-okat létrehozni, ha fontos változás megy végbe – például megváltozott az állapota.
+A Qt-ban az objektumoknak lehetnek slot-jaik is, melyekkel képesek hallgatózni: figyelni arra, ha egy másik objektum signalt küld.
+
+Amikor a signal-t a slot-hoz kötjük, tulajdonképp elmondjuk a slot-nak, hogy melyik objektum melyik signaljára kell figyelnie. 
+A signalt küldõ objektum nem tudja, hogy figyelnek-e rá.
+
+Minden osztály, amely a 'QObject'-bõl öröklõdik, vagy maga a QObject, képes elõre megadott/saját signalokat és slotokat tartalmazni.
+Lehetséges az, hogy egy signalt több slothoz, illetve egy slotot több signalhoz kapcsoljunk.
+Sõt, signalt signalhoz is kapcsolhatunk. (Ekkor mindkettõ meghívódik megfelelõ sorrendben.)
+
+A signalokat emit segítségével "hívjuk" meg.
+
+Az egész hasonló elven mûködik, mint Javaban az Observer interfész és a hozzá tartozó Observable osztály.
+
+
+Hogyan használjuk?
+A projectben megadott signalokat a "BrainBThread.h" tartalmazza, míg a slotokat a "BrainBWin.h".
+
+A programunk a BrainBWin.cpp forrás osztályának egy példánya, ez felelõs többek között a tartalom kirajzolásáért,
+az egér(állapotok), valamint a kapott signalok feldolgozásáért.
+A BrainBWin kontruktorában példányosítunk egy BrainBThread objektumot is, ez felel az négyzetekért.
+Továbbá itt kapcsoljuk össze a signalokat a megfelelõ slotokkal. (QObject::connect())
+A BrainBThread signaljait a BrainBWin slotjaival.
+
+Mikor hívódnak meg a signalok? (emit)
+A 'heroesChanged' akkor, amikor a négyzet frissül (mozog, újrarajzolódik) -> BrainBThread::draw() metódus
+Az 'endAndStats' pedig akkor, amikor a játék véget ér, letelik az idõ. -> BrainBThread::run() metódus
