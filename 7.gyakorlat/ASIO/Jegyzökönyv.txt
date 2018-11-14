@@ -18,7 +18,7 @@ Mivel a scanf függvény a változó(k)-ban el akarja helyezeni a beolvasott ér
  Példa : int x, y, z ;
  scanf("%d%d%d",&x,&y,&z); esetén
  a beolvasás a következıképpen történik : 2 <ENTER>, 3 <ENTER>
- 4 <ENTE
+ 4 <ENTEr>
 A formázott adatbeolvasást a scanf függvény segítségével tehetjük meg. A függvény általános formája a következő:
 scanf(formátum,argumentumlista)
 

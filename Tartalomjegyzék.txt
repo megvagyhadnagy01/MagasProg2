@@ -111,7 +111,7 @@ A feladatok fennt vannak a repóban, hetekre bontva.
     Elekdztem és befejeztem.
     
    OSM térkép rajzolás:
-    Elekdztem és befejeztem.
+    Elekdztem és még nem fejeztembe.
     
    Samucam:
     Elekdztem és befejeztem.
@@ -122,5 +122,30 @@ A feladatok fennt vannak a repóban, hetekre bontva.
     8.hét
     
     AOP:
-     Elekzdtemés befejeztem.
-    
+     Elekzdtemés és még nem fejeztembe.
+     
+    Junit teszt:
+        Elekzdtemés befejeztem.
+        
+    Port scan:
+       Elekzdtemés befejeztem.
+     
+     összefoglaló:
+        Elekzdtemés befejeztem.
+
+
+
+
+9.hét
+
+
+
+
+
+
+
+
+
+
+
+

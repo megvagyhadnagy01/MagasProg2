@@ -1,58 +1,58 @@
 . Aspektusok
-Ahogy a számítógépes programok nõttek, úgy vált egyre súlyosabb problémává ezen programok áttekinthetõsége, karbantarthatósága 
-és újrafelhasználhatósága.A kezdeti magas szintû nyelvek (pl. FORTRAN) az assembly nyelvek szerkezetét másolták. A goto utasításokkal
- teletûzdelt "spagetti kód" érthetetlensége hozta a strukturális nyelveket, amelyeknek legfontosabb élõ tagja a C. Ezen nyelvek 
-használata nyílt, jól definiált interfészeket és jól körülhatárolt modulokat eredményezhet, amelyek az olvashatóságot és 
-az újrahasználhatóságot nagyban megnövelik. Problémájuk, hogy az implementáció viszonylag nyílt
- a programozó számára (nincs adat- és kódrejtés) valamint a bõvítéshez hozzá kell nyúlni a modulhoz.
+Ahogy a szÃ¡mÃ­tÃ³gÃ©pes programok nÅ‘ttek, Ãºgy vÃ¡lt egyre sÃºlyosabb problÃ©mÃ¡vÃ¡ ezen programok Ã¡ttekinthetÅ‘sÃ©ge, karbantarthatÃ³sÃ¡ga 
+Ã©s ÃºjrafelhasznÃ¡lhatÃ³sÃ¡ga.A kezdeti magas szintÅ± nyelvek (pl. FORTRAN) az assembly nyelvek szerkezetÃ©t mÃ¡soltÃ¡k. A goto utasÃ­tÃ¡sokkal
+ teletÅ±zdelt "spagetti kÃ³d" Ã©rthetetlensÃ©ge hozta a strukturÃ¡lis nyelveket, amelyeknek legfontosabb Ã©lÅ‘ tagja a C. Ezen nyelvek 
+hasznÃ¡lata nyÃ­lt, jÃ³l definiÃ¡lt interfÃ©szeket Ã©s jÃ³l kÃ¶rÃ¼lhatÃ¡rolt modulokat eredmÃ©nyezhet, amelyek az olvashatÃ³sÃ¡got Ã©s 
+az ÃºjrahasznÃ¡lhatÃ³sÃ¡got nagyban megnÃ¶velik. ProblÃ©mÃ¡juk, hogy az implementÃ¡ciÃ³ viszonylag nyÃ­lt
+ a programozÃ³ szÃ¡mÃ¡ra (nincs adat- Ã©s kÃ³drejtÃ©s) valamint a bÅ‘vÃ­tÃ©shez hozzÃ¡ kell nyÃºlni a modulhoz.
 
-Az objektumorientált nyelvek mindkét problémára választ adnak. Ezen nyelvek adat- és kódrejtési szolgáltatásaival pontosan meghatározhatjuk, 
-mit teszünk láthatóvá más modulok számára, az öröklõdési szolgáltatásokkal pedig úgy bõvíthetjük az eredeti modulokat, hogy
- azok implementációjához nem kell hozzányúljunk.
+Az objektumorientÃ¡lt nyelvek mindkÃ©t problÃ©mÃ¡ra vÃ¡laszt adnak. Ezen nyelvek adat- Ã©s kÃ³drejtÃ©si szolgÃ¡ltatÃ¡saival pontosan meghatÃ¡rozhatjuk, 
+mit teszÃ¼nk lÃ¡thatÃ³vÃ¡ mÃ¡s modulok szÃ¡mÃ¡ra, az Ã¶rÃ¶klÅ‘dÃ©si szolgÃ¡ltatÃ¡sokkal pedig Ãºgy bÅ‘vÃ­thetjÃ¼k az eredeti modulokat, hogy
+ azok implementÃ¡ciÃ³jÃ¡hoz nem kell hozzÃ¡nyÃºljunk.
 
-Az  objektumorientált programozás széleskörû elterjedése mégse hozta meg a modularizáció kívánt fokát. Ennek oka több kutató 
-szerint az átmetszõ követelmények (crosscutting concerns) jelenléte. Átmetszõ követelmény az, ami a szoftver választott modularizációjában
- nem fogható meg egy modul által. Minthogy a modularizáció általában a funkció függvénye, ezek tipikusan nem funkcionális
- követelmények vagy pedig olyan funkcionális követelmények, amelyek az eredeti funkcionális dekompozíciónál nem voltak ismertek és a
- jelenlegi modulszerkezetben nem helyezhetõk el egy modulként.
- Hipermetszeres ismereteinket felhasználva azt is mondhatjuk, hogy az átmetszõ követelmény hipermetszete a domináns dekompozíció 
-hipermetszetére vetítve nem modularizálható. 
+Az  objektumorientÃ¡lt programozÃ¡s szÃ©leskÃ¶rÅ± elterjedÃ©se mÃ©gse hozta meg a modularizÃ¡ciÃ³ kÃ­vÃ¡nt fokÃ¡t. Ennek oka tÃ¶bb kutatÃ³ 
+szerint az Ã¡tmetszÅ‘ kÃ¶vetelmÃ©nyek (crosscutting concerns) jelenlÃ©te. ÃtmetszÅ‘ kÃ¶vetelmÃ©ny az, ami a szoftver vÃ¡lasztott modularizÃ¡ciÃ³jÃ¡ban
+ nem foghatÃ³ meg egy modul Ã¡ltal. Minthogy a modularizÃ¡ciÃ³ Ã¡ltalÃ¡ban a funkciÃ³ fÃ¼ggvÃ©nye, ezek tipikusan nem funkcionÃ¡lis
+ kÃ¶vetelmÃ©nyek vagy pedig olyan funkcionÃ¡lis kÃ¶vetelmÃ©nyek, amelyek az eredeti funkcionÃ¡lis dekompozÃ­ciÃ³nÃ¡l nem voltak ismertek Ã©s a
+ jelenlegi modulszerkezetben nem helyezhetÅ‘k el egy modulkÃ©nt.
+ Hipermetszeres ismereteinket felhasznÃ¡lva azt is mondhatjuk, hogy az Ã¡tmetszÅ‘ kÃ¶vetelmÃ©ny hipermetszete a dominÃ¡ns dekompozÃ­ciÃ³ 
+hipermetszetÃ©re vetÃ­tve nem modularizÃ¡lhatÃ³. 
 
-Az aspektusnyelv programpontokat azonosít és ide kóddarabokat szúr. Egy aspektust tehát két dolog ír le:
-A  programpontokat kiválasztó kifejezés, ezt pontszûrõnek (pointcut) nevezik. A pontszûrõ határozza meg a  programhelyekt, ahol
+Az aspektusnyelv programpontokat azonosÃ­t Ã©s ide kÃ³ddarabokat szÃºr. Egy aspektust tehÃ¡t kÃ©t dolog Ã­r le:
+A  programpontokat kivÃ¡lasztÃ³ kifejezÃ©s, ezt pontszÅ±rÅ‘nek (pointcut) nevezik. A pontszÅ±rÅ‘ hatÃ¡rozza meg a  programhelyekt, ahol
  az aspektust alkalmazni kell.
-Maga  a beszúrandó programrészlet, ill. a beszúrási szabályok. Ezt tanácsnak (advice) nevezzük.
-Ezen két elemet egy szintaktikai egységbe fogják össze. Az AspectJ az aspektusokat Jáva osztályokra képezi le, habár ez a nyelv szintjén
- nem derül ki (észrevehetjük viszont a .class fájlokat a lefordított programban).
-1) Új aspektust hasonlóan hozunk létre, mint egy Java osztályt: public aspect ASPEKTUSNÉV
+Maga  a beszÃºrandÃ³ programrÃ©szlet, ill. a beszÃºrÃ¡si szabÃ¡lyok. Ezt tanÃ¡csnak (advice) nevezzÃ¼k.
+Ezen kÃ©t elemet egy szintaktikai egysÃ©gbe fogjÃ¡k Ã¶ssze. Az AspectJ az aspektusokat JÃ¡va osztÃ¡lyokra kÃ©pezi le, habÃ¡r ez a nyelv szintjÃ©n
+ nem derÃ¼l ki (Ã©szrevehetjÃ¼k viszont a .class fÃ¡jlokat a lefordÃ­tott programban).
+**** Ãšj aspektust hasonlÃ³an hozunk lÃ©tre, mint egy Java osztÃ¡lyt: public aspect ASPEKTUSNÃ‰V
 
-2) Aztán jönnek a változó deklarációk, amelyet használni akarunk.
-Mi jelenleg a 'nulla' és 'egy' int típusú változókat használjuk arra, hogy a számlálók értékét elrakjuk.
+**** AztÃ¡n jÃ¶nnek a vÃ¡ltozÃ³ deklarÃ¡ciÃ³k, amelyet hasznÃ¡lni akarunk.
+Mi jelenleg a 'nulla' Ã©s 'egy' int tÃ­pusÃº vÃ¡ltozÃ³kat hasznÃ¡ljuk arra, hogy a szÃ¡mlÃ¡lÃ³k Ã©rtÃ©kÃ©t elrakjuk.
 
-3) Utána a pointcut-ok megadása.
-Join point: kisebb megszorításokkal a program bármely azonosítható futási pontja lehet: egy metódus hívása, egy változó értékadása, stb.
-Pointcut: ezek tartalmazzák és fogják egybe az alkalmazás join pointjait, õket definiáljuk, hiszen a join pointok a valós osztályokban vannak. 
+**** UtÃ¡na a pointcut-ok megadÃ¡sa.
+Join point: kisebb megszorÃ­tÃ¡sokkal a program bÃ¡rmely azonosÃ­thatÃ³ futÃ¡si pontja lehet: egy metÃ³dus hÃ­vÃ¡sa, egy vÃ¡ltozÃ³ Ã©rtÃ©kadÃ¡sa, stb.
+Pointcut: ezek tartalmazzÃ¡k Ã©s fogjÃ¡k egybe az alkalmazÃ¡s join pointjait, Å‘ket definiÃ¡ljuk, hiszen a join pointok a valÃ³s osztÃ¡lyokban vannak. 
 
-A megfelelõ függvényhez megfelelõ pointcutokat hozunk létre, amelyeket majd az advice-oknál fogunk felhasználni.
+A megfelelÅ‘ fÃ¼ggvÃ©nyhez megfelelÅ‘ pointcutokat hozunk lÃ©tre, amelyeket majd az advice-oknÃ¡l fogunk felhasznÃ¡lni.
 
-3 metódust fogunk figyelni:
-Csomopont.ujNullasGyermek, ha új nullás kerül beszúrásra;
-Csomopont.ujEgyesGyermek, ha új egyes kerül beszúrásra;
-valamint a main() metódus.
+**** metÃ³dust fogunk figyelni:
+Csomopont.ujNullasGyermek, ha Ãºj nullÃ¡s kerÃ¼l beszÃºrÃ¡sra;
+Csomopont.ujEgyesGyermek, ha Ãºj egyes kerÃ¼l beszÃºrÃ¡sra;
+valamint a main() metÃ³dus.
 
-KITÉRÉS: az execution() és a call() programkiválasztó. 
-Az execution magának a kijelölt metódusnak a végrehajtását kapja el, tehát a kijelölt metódus törzsébe szúrja a tanácsot. 
-A call() a metódus hívását kapja el, tehát a tanácsot a metódus hívása elé és utána szúrja be. 
-Normálisan ennek nincs jelentõsége, de speciális esetekben fontos lehet. 
-A Jáva alkalmazás main() metódusát pl. nem lehet call() kiválasztóval elkapni, mert ez a hívás nincs a Jáva programban. 
-(Ugyancsak fontos lehet a különbség konstruktorok hívásánál.)
+KITÃ‰RÃ‰S: az execution() Ã©s a call() programkivÃ¡lasztÃ³. 
+Az execution magÃ¡nak a kijelÃ¶lt metÃ³dusnak a vÃ©grehajtÃ¡sÃ¡t kapja el, tehÃ¡t a kijelÃ¶lt metÃ³dus tÃ¶rzsÃ©be szÃºrja a tanÃ¡csot. 
+A call() a metÃ³dus hÃ­vÃ¡sÃ¡t kapja el, tehÃ¡t a tanÃ¡csot a metÃ³dus hÃ­vÃ¡sa elÃ© Ã©s utÃ¡na szÃºrja be. 
+NormÃ¡lisan ennek nincs jelentÅ‘sÃ©ge, de speciÃ¡lis esetekben fontos lehet. 
+A JÃ¡va alkalmazÃ¡s main() metÃ³dusÃ¡t pl. nem lehet call() kivÃ¡lasztÃ³val elkapni, mert ez a hÃ­vÃ¡s nincs a JÃ¡va programban. 
+(Ugyancsak fontos lehet a kÃ¼lÃ¶nbsÃ©g konstruktorok hÃ­vÃ¡sÃ¡nÃ¡l.)
 
-Ez az oka annak, hogy a main() metódusnál nem call()-t látunk a forrásban.
+Ez az oka annak, hogy a main() metÃ³dusnÃ¡l nem call()-t lÃ¡tunk a forrÃ¡sban.
 
-4) Advice-ok/tanácsok.
-Az advice határozza meg, mi történjen az adott join pointnál.
-A before() tanács a metódus futása elõtt, az after() tanács a metódus futása után hívódik meg.
+**** Advice-ok/tanÃ¡csok.
+Az advice hatÃ¡rozza meg, mi tÃ¶rtÃ©njen az adott join pointnÃ¡l.
+A before() tanÃ¡cs a metÃ³dus futÃ¡sa elÅ‘tt, az after() tanÃ¡cs a metÃ³dus futÃ¡sa utÃ¡n hÃ­vÃ³dik meg.
 
-Megfelelõ helyen növeljük a változóink értékét, a after():vege() tanács pedig jelzi, hogy a main() metódus futása után írjuk ki az eredményeket.
+MegfelelÅ‘ helyen nÃ¶veljÃ¼k a vÃ¡ltozÃ³ink Ã©rtÃ©kÃ©t, a after():vege() tanÃ¡cs pedig jelzi, hogy a main() metÃ³dus futÃ¡sa utÃ¡n Ã­rjuk ki az eredmÃ©nyeket.
 
-Varga S.Mátyás
+Varga S.MÃ¡tyÃ¡s
