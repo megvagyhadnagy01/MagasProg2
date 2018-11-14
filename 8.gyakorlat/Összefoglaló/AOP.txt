@@ -24,5 +24,35 @@ A  programpontokat kiválasztó kifejezés, ezt pontszûrõnek (pointcut) nevezik. A 
 Maga  a beszúrandó programrészlet, ill. a beszúrási szabályok. Ezt tanácsnak (advice) nevezzük.
 Ezen két elemet egy szintaktikai egységbe fogják össze. Az AspectJ az aspektusokat Jáva osztályokra képezi le, habár ez a nyelv szintjén
  nem derül ki (észrevehetjük viszont a .class fájlokat a lefordított programban).
+1) Új aspektust hasonlóan hozunk létre, mint egy Java osztályt: public aspect ASPEKTUSNÉV
+
+2) Aztán jönnek a változó deklarációk, amelyet használni akarunk.
+Mi jelenleg a 'nulla' és 'egy' int típusú változókat használjuk arra, hogy a számlálók értékét elrakjuk.
+
+3) Utána a pointcut-ok megadása.
+Join point: kisebb megszorításokkal a program bármely azonosítható futási pontja lehet: egy metódus hívása, egy változó értékadása, stb.
+Pointcut: ezek tartalmazzák és fogják egybe az alkalmazás join pointjait, õket definiáljuk, hiszen a join pointok a valós osztályokban vannak. 
+
+A megfelelõ függvényhez megfelelõ pointcutokat hozunk létre, amelyeket majd az advice-oknál fogunk felhasználni.
+
+3 metódust fogunk figyelni:
+Csomopont.ujNullasGyermek, ha új nullás kerül beszúrásra;
+Csomopont.ujEgyesGyermek, ha új egyes kerül beszúrásra;
+valamint a main() metódus.
+
+KITÉRÉS: az execution() és a call() programkiválasztó. 
+Az execution magának a kijelölt metódusnak a végrehajtását kapja el, tehát a kijelölt metódus törzsébe szúrja a tanácsot. 
+A call() a metódus hívását kapja el, tehát a tanácsot a metódus hívása elé és utána szúrja be. 
+Normálisan ennek nincs jelentõsége, de speciális esetekben fontos lehet. 
+A Jáva alkalmazás main() metódusát pl. nem lehet call() kiválasztóval elkapni, mert ez a hívás nincs a Jáva programban. 
+(Ugyancsak fontos lehet a különbség konstruktorok hívásánál.)
+
+Ez az oka annak, hogy a main() metódusnál nem call()-t látunk a forrásban.
+
+4) Advice-ok/tanácsok.
+Az advice határozza meg, mi történjen az adott join pointnál.
+A before() tanács a metódus futása elõtt, az after() tanács a metódus futása után hívódik meg.
+
+Megfelelõ helyen növeljük a változóink értékét, a after():vege() tanács pedig jelzi, hogy a main() metódus futása után írjuk ki az eredményeket.
 
 Varga S.Mátyás
