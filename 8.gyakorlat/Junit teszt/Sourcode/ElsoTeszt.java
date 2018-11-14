@@ -1,4 +1,4 @@
-package gkiss01.binfa;
+package binfa;
 
 import static org.junit.jupiter.api.Assertions.*;
 
