@@ -1,64 +1,69 @@
-import java.io.*;
+package smapletszt;
 
-public class Main {
 
-    public static void main(String[] args)
-    {
-        if(args.length != 3)
-            System.err.println("Usage: java Main in_file -o out_file");
+	import java.io.*;
 
-        if(!args[1].equals("-o"))
-            System.err.println("Usage: java Main in_file -o out_file");
+	public class Main {
 
-        try
-        {
-            FileReader beFile = new FileReader(args[0]);
-            LZWBinfa binFa = new LZWBinfa();
+	    public static void main(String[] args)
+	    {
+	        if(args.length != 3)
+	            System.err.println("Usage: java Main in_file -o out_file");
 
-            int j;
-            char i;
-            boolean kommentben = false;
-            while((j = beFile.read()) != -1)
-            {
-                i = (char)j;
+	        if(!args[1].equals("-o"))
+	            System.err.println("Usage: java Main in_file -o out_file");
 
-                if(i == '>'){
-        			kommentben = true;
-        			continue;
-        		}
-        		if(i == '\n'){
-        			kommentben = false;
-        			continue;
-        		}
-        		if(kommentben)
-        			continue;
-        		if(i == 'N')
-        			continue;
+	        try
+	        {
+	            FileReader beFile = new FileReader(args[0]);
+	            LZWBinfa binFa = new LZWBinfa();
 
-                for(int k = 0;k < 8; k++)
-                {
-            		if((i & 0x80) == 0x80)
-            		      binFa.belerak('1');
-            		else
-            		      binFa.belerak('0');
-            		i <<= 1;
-                }
-            }
-            beFile.close();
+	            int j;
+	            char i;
+	            boolean kommentben = false;
+	            while((j = beFile.read()) != -1)
+	            {
+	                i = (char)j;
 
-            //kiírás
-            PrintWriter kiFile = new PrintWriter(new FileWriter(args[2]));
-            binFa.kiir(binFa.getGyoker(), kiFile);
+	                if(i == '>'){
+	        			kommentben = true;
+	        			continue;
+	        		}
+	        		if(i == '\n'){
+	        			kommentben = false;
+	        			continue;
+	        		}
+	        		if(kommentben)
+	        			continue;
+	        		if(i == 'N')
+	        			continue;
 
-            kiFile.println("depth = " + binFa.getMelyseg());
-            kiFile.println("mean = " + binFa.getAtlag());
-            kiFile.println("var = " + binFa.getSzoras());
+	                for(int k = 0;k < 8; k++)
+	                {
+	            		if((i & 0x80) == 0x80)
+	            		      binFa.belerak('1');
+	            		else
+	            		      binFa.belerak('0');
+	            		i <<= 1;
+	                }
+	            }
+	            beFile.close();
 
-            kiFile.close();
-        }
-        catch (IOException exception)
-        {
-            System.err.println("A megadott bemeneti file nem letezik...");
-        }
-    }
-}
+	            //kiírás
+	            PrintWriter kiFile = new PrintWriter(new FileWriter(args[2]));
+	            binFa.kiir(binFa.getGyoker(), kiFile);
+
+	            kiFile.println("depth = " + binFa.getMelyseg());
+	            kiFile.println("mean = " + binFa.getAtlag());
+	            kiFile.println("var = " + binFa.getSzoras());
+
+	            kiFile.close();
+	        }
+	        catch (IOException exception)
+	        {
+	            System.err.println("A megadott bemeneti file nem letezik...");
+	        }
+	    }
+	}
+
+
