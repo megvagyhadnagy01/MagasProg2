@@ -1,0 +1,13 @@
+AOP
+Mi tömören az aspektus orientált programozás? Legáltalánosabban megfogalmazva egy magasabb szintű absztrakciót vezet be az OO-hoz képest.
+Másképp fogalmazva: megadja nekünk az alkalmazáslogikát keresztbe-kasul vagdosó síkok (mint például a felhasználó-azonosítás) kiemelésének
+lehetőségét.
+
+Miért hívják aspektus-orientált programozásnak? Azért, mert a feladatokat bizonyos aspektusok szerint értelmezzük: egy átutalás a
+naplózás vagy a tranzakció-kezelés szempontjából - hogy csak kettőt említsek a klasszikusok közül.
+
+Ramnivas Laddad, akinek AOP-t és az AspectJ-t elemző és ismertető munkái mérföldkőnek tekinthetőek, a következő két ábrán mutatta be
+a 'klasszikus' tervezés problémáját és az aspektus orientált programozás által rá adott választ.
+
+Az 1. ábrán a különböző feladatok, megszorítások, elvárások (például logolás, perzisztancia, biztonság) keveredése látható a rendszer 
+moduljaiban.
