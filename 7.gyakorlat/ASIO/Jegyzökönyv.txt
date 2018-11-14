@@ -1,31 +1,50 @@
-A formázott adatbeolvasást a scanf függvény segítségével tehetjük meg. A függvény általános formája a következõ:
-scanf(formátum, argumentumlista)
+Mivel a scanf fÃ¼ggvÃ©ny a vÃ¡ltozÃ³(k)-ban el akarja helyezeni a beolvasott Ã©rtÃ©ket,
+ ezÃ©rt a vÃ¡ltozÃ³(k) cÃ­meit kell Ã¡tadni. Ennek a tÃ©nynek a rÃ©szletes magyarÃ¡zatÃ¡ra
+ kÃ©sÄ±bbiekben tÃ©rÃ¼nk ki ! A vÃ¡ltozÃ³ cÃ­mÃ©t a vÃ¡ltozÃ³ neve elÃ© Ã­rt & karakter segÃ­tsÃ©-
+ gÃ©vel tudjuk elÄ±Ã¡llÃ­tani.
+ Amennyiben egyszerre tÃ¶bb vÃ¡ltozÃ³ba akarunk Ã©rtÃ©keket beolvasni, Ãºgy kÃ©tfÃ©le
+ mÃ³dszert alkalmazhatunk :
+ 1.) A programban a formÃ¡tumvezÃ©rlÄ± karaktereket vesszÄ±vel vÃ¡lasztjuk el egy-
+ mÃ¡stÃ³l, Ã©s a program futÃ¡sa sorÃ¡n a bebillentyÅ‘zÃ¶tt Ã©rtÃ©keket is vesszÄ±vel
+ vÃ¡lasztjuk el .
+ PÃ©lda : int x, y, z ;
+ scanf("%d,%d,%d",&x,&y,&z); esetÃ©n
+ a beolvasÃ¡s a kÃ¶vetkezÄ±kÃ©ppen tÃ¶rtÃ©nik : 2,3,4 <ENTER> .
+ 
+- 4 -
+2.) A programban a formÃ¡tumvezÃ©rlÄ± karaktereket nem vÃ¡lasztjuk el egymÃ¡stÃ³l,
+ Ã©s a program futÃ¡sa sorÃ¡n az egyes bebillentyÅ‘zÃ¶tt Ã©rtÃ©kek utÃ¡n lenyomjuk az
+ <ENTER> billentyÅ‘t .
+ PÃ©lda : int x, y, z ;
+ scanf("%d%d%d",&x,&y,&z); esetÃ©n
+ a beolvasÃ¡s a kÃ¶vetkezÄ±kÃ©ppen tÃ¶rtÃ©nik : 2 <ENTER>, 3 <ENTER>
+ 4 <ENTE
+A formÃ¡zott adatbeolvasÃ¡st a scanf fÃ¼ggvÃ©ny segÃ­tsÃ©gÃ©vel tehetjÃ¼k meg. A fÃ¼ggvÃ©ny Ã¡ltalÃ¡nos formÃ¡ja a kÃ¶vetkezÅ‘:
+scanf(formÃ¡tum,argumentumlista)
 
-A scanf karaktereket olvas a standard bemenetrõl, majd a formátum alapján értelmezi azokat, és ha a beolvasott karakterek megfelelõk, 
-akkor konvertálja õket, és értékül adja a megfelelõ változónak.
-A visszatérési érték a sikeresen beolvasott adatok számát adja vissza. 
+A scanf karaktereket olvas a standard bemenetrÅ‘l, majd a formÃ¡tum alapjÃ¡n Ã©rtelmezi azokat, Ã©s ha a beolvasott karakterek megfelelÅ‘k, 
+akkor konvertÃ¡lja Å‘ket, Ã©s Ã©rtÃ©kÃ¼l adja a megfelelÅ‘ vÃ¡ltozÃ³nak.
+A visszatÃ©rÃ©si Ã©rtÃ©k a sikeresen beolvasott adatok szÃ¡mÃ¡t adja vissza. 
 
-Az argumentumlista már létezõ/lefoglalt objektumokra mutató címeket tartalmaz, mégpedig azért, 
-mert a függvény segítségével értéket akarunk adni a már meglévõ változóknak.
+Az argumentumlista mÃ¡r lÃ©tezÅ‘/lefoglalt objektumokra mutatÃ³ cÃ­meket tartalmaz, mÃ©gpedig azÃ©rt, 
+mert a fÃ¼ggvÃ©ny segÃ­tsÃ©gÃ©vel Ã©rtÃ©ket akarunk adni a mÃ¡r meglÃ©vÅ‘ vÃ¡ltozÃ³knak.
 
-Az sscanf függvény, amelyet mi is használunk, annyiban tér el az scanf függvénytõl, hogy ott meg kell adni, 
-milyen input streamrõl akarunk olvasni.
-Tehát az scanf függvény az sscanf függvény standard bemeneti olvasással. 
+Az sscanf fÃ¼ggvÃ©ny, amelyet mi is hasznÃ¡lunk, annyiban tÃ©r el az scanf fÃ¼ggvÃ©nytÅ‘l, hogy ott meg kell adni, 
+milyen input streamrÅ‘l akarunk olvasni.
+TehÃ¡t az scanf fÃ¼ggvÃ©ny az sscanf fÃ¼ggvÃ©ny standard bemeneti olvasÃ¡ssal. 
 
--------------------------------------------------------------------------------------------------------
 
-Miért használjuk?
-A definíciója már választ ad erre, de konkrétan mintaillesztést próbálunk elvégezni.
-A mintaillesztés mellett még bizonyos értékeket is kinyerünk vele, amelyre szükségünk lehet.
 
-A felismerendõ "kifejezéseket" a shmclient.cpp generálja.
+MiÃ©rt hasznÃ¡ljuk?
+A fentiek alapjÃ¡n Ã©rtelmezhetÅ‘ ,hogy egy konkrÃ©t mintailesztÃ©st probÃ¡lunk vÃ©grehajtani,illetve egy bizonyos Ã©rtÃ©ket is igyekszÃ¼nk 
+kinyverni vele
+A felismerendÅ‘ "kifejezÃ©seket" a shmclient.cpp generÃ¡lja.
 
-Hogyan használjuk?
-A lexer is segítségünkre van ebben. A lexernek köszönhetõen már biztosan tudjuk, mikor milyen "mintára" kell illeszteni a bejövõ adatfolyamot.
-Ezért is látunk minden lexer kifejezésben csak 1 db. sscanf függvényt.
+HasznÃ¡lhatosÃ¡g.
+A lexer is segÃ­tsÃ©gÃ¼nkre van ebben mert ezÃ¡ltall biztosra leeht tudni,hogx milyen mintÃ¡ra kell illeszteni a bejÃ¶vÃ¶ foylamatot.
+EzÃ©rt is lÃ¡tunk minden lexer kifejezÃ©sben csak 1 db. sscanf fÃ¼ggvÃ©nyt.
+Ekkor mÃ¡r csak a vÃ¡ltozÃ³knak adunk Ã©rtÃ©ket.
 
-Ekkor már csak a változóknak adunk értéket.
-
-Miért fontos ez?
-Ezeknek a változóknak az értékeit használjuk fel a lexerhez tartozó carlexer.hpp-ben.
-Ebben a carlexer.hpp-ben definiálunk bizonyos függvényeket, amelyek a robotautó projekt szerves részét képezik.
+MiÃ©rt kell ez ?
+Ezeknek a vÃ¡ltozÃ³knak az Ã©rtÃ©keit hasznÃ¡ljuk fel a lexerhez tartozÃ³ carlexer.hpp-ben.
+Ebben a carlexer.hpp-ben definiÃ¡lunk bizonyos fÃ¼ggvÃ©nyeket, amelyek a robotautÃ³ projekt szerves rÃ©szÃ©t kÃ©pezik.
