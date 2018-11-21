@@ -1,4 +1,4 @@
-# Copyright 2015 The TensorFlow Authors. All Rights Reserved.
+ Copyright 2015 The TensorFlow Authors. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@
 # ==============================================================================
 
 """A very simple MNIST classifier.
+
 See extensive documentation at
 http://tensorflow.org/tutorials/mnist/beginners/index.md
 """
@@ -41,8 +42,8 @@ FLAGS = None
 
 
 def readimg():
-    file = tf.read_file("3.png")
-    img = tf.image.decode_png(file, 1)
+    file = tf.read_file("sajat8a.png")
+    img = tf.image.decode_png(file)
     return img
 
 def main(_):
@@ -66,7 +67,7 @@ def main(_):
   #
   # So here we use tf.nn.softmax_cross_entropy_with_logits on the raw
   # outputs of 'y', and then average across the batch.
-  cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=y, labels=y_)
+  cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y, y_))
   train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 
   sess = tf.InteractiveSession()
@@ -102,14 +103,14 @@ def main(_):
   print("-- Ezt a halozat ennek ismeri fel: ", classification[0])
   print("----------------------------------------------------------")
 
-  print("-- A sajat kezi 3-asom felismerese, mutatom a szamot, a tovabblepeshez csukd be az ablakat")
+  print("-- A sajat kezi 8-asom felismerese, mutatom a szamot, a tovabblepeshez csukd be az ablakat")
 
   img = readimg()
   image = img.eval()
   image = image.reshape(28*28)
 
   matplotlib.pyplot.imshow(image.reshape(28, 28), cmap=matplotlib.pyplot.cm.binary)
-  matplotlib.pyplot.savefig("sajat3.png")  
+  matplotlib.pyplot.savefig("8.png")  
   matplotlib.pyplot.show()
 
   classification = sess.run(tf.argmax(y, 1), feed_dict={x: [image]})
