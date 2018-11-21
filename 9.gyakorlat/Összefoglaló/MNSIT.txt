@@ -15,3 +15,7 @@ míg a képzési készlet másik felét és a tesztkészlet másik felét a NIST teszt ada
 Az adatbázis eredeti alkotói megõrzik a tesztelt módszerek közül néhányat.  Eredeti tanulmányukban atámogató vektor
  gépet , hogy 0,8% -os hibaarányt kapjon.  2018-ban közzétették a MNIST-hez hasonló kibõvített adatkészletet, amely 
 240 000 képzési képet tartalmaz, és 40 000 kézírásos számjegybõl és karakterbõl álló képeket.
+A képsorozatot az MNIST adatbázisban kombinációja két NIST adatbázisok: speciális adatbázis 1. és speciális adatbázis 3.
+ Különleges Database 1-es és külön adatbázisban 3 áll számjegyek írta középiskolás diákok és alkalmazottak az USBAn.
+1.Telepiteni kell a TensorFlow-ot. utána látrekell hozni egy twicetwo könyvtárat.
+2.azért Python kóddal épitjük mert interfészével nagy számitási gráfokat kelesz számolnia.
