@@ -1,21 +1,22 @@
 9.gyakorlat MNIST
 
-A MNIST adatbázis (Modified National Institute of Standards and Technology adatbázis) egy nagy adatbázis kézzel
- írt számjegyekbõl, amelyeket általában különbözõ képfeldolgozó rendszerek képzésére használnak .
-Az adatbázist széles körben használják a gépi tanulás területén való képzésre és tesztelésre .
-Ezt a mintát a NTS adatsorainak összekuszálásával alkoták meg.Az alkotók úgy érezték, hogy mióta a NIST
- képzési adatállománya az amerikai Census Bureau alkalmazottaitól származott , míg a teszt adatkészletet
- amerikaközépiskolás diákok, nem volt alkalmas gépi tanulási kísérletekre.  Továbbá a NIST fekete-fehér
- képét normalizálták, hogy illeszkedjen egy 28x28 pixeles határoló dobozba, és anti-aliased , amely
- szürkeárnyalatos szinteket vezetett be.A MNIST adatbázis 60 000 képzési képet és 10 000 tesztelési 
-képet tartalmaz.  A képzési készlet felét és a tesztkészlet felét a NIST képzési adatállományából vettük 
-míg a képzési készlet másik felét és a tesztkészlet másik felét a NIST teszt adatkészletébõl vettük.  Számos
- tudományos dokumentum készült a legalacsonyabb hibaarány elérésére irányuló kísérletek során; egy papír, a
- konvolúciós neurális hálózatok hierarchikus rendszerét használva , képes kezelni a hibaarányt a MNIST adatbázisban 0,23% -kal. 
-Az adatbázis eredeti alkotói megõrzik a tesztelt módszerek közül néhányat.  Eredeti tanulmányukban atámogató vektor
- gépet , hogy 0,8% -os hibaarányt kapjon.  2018-ban közzétették a MNIST-hez hasonló kibõvített adatkészletet, amely 
-240 000 képzési képet tartalmaz, és 40 000 kézírásos számjegybõl és karakterbõl álló képeket.
-A képsorozatot az MNIST adatbázisban kombinációja két NIST adatbázisok: speciális adatbázis 1. és speciális adatbázis 3.
- Különleges Database 1-es és külön adatbázisban 3 áll számjegyek írta középiskolás diákok és alkalmazottak az USBAn.
-1.Telepiteni kell a TensorFlow-ot. utána látrekell hozni egy twicetwo könyvtárat.
-2.azért Python kóddal épitjük mert interfészével nagy számitási gráfokat kelesz számolnia.
+A MNIST adatbÃ¡zis (Modified National Institute of Standards and Technology adatbÃ¡zis) egy nagy adatbÃ¡zis kÃ©zzel
+ Ã­rt szÃ¡mjegyekbÅ‘l, amelyeket Ã¡ltalÃ¡ban kÃ¼lÃ¶nbÃ¶zÅ‘ kÃ©pfeldolgozÃ³ rendszerek kÃ©pzÃ©sÃ©re hasznÃ¡lnak .
+Az adatbÃ¡zist szÃ©les kÃ¶rben hasznÃ¡ljÃ¡k a gÃ©pi tanulÃ¡s terÃ¼letÃ©n valÃ³ kÃ©pzÃ©sre Ã©s tesztelÃ©sre .
+Ezt a mintÃ¡t a NTS adatsorainak Ã¶sszekuszÃ¡lÃ¡sÃ¡val alkotÃ¡k meg.Az alkotÃ³k Ãºgy Ã©reztÃ©k, hogy miÃ³ta a NIST
+ kÃ©pzÃ©si adatÃ¡llomÃ¡nya az amerikai Census Bureau alkalmazottaitÃ³l szÃ¡rmazott , mÃ­g a teszt adatkÃ©szletet
+ amerikakÃ¶zÃ©piskolÃ¡s diÃ¡kok, nem volt alkalmas gÃ©pi tanulÃ¡si kÃ­sÃ©rletekre.  TovÃ¡bbÃ¡ a NIST fekete-fehÃ©r
+ kÃ©pÃ©t normalizÃ¡ltÃ¡k, hogy illeszkedjen egy 28x28 pixeles hatÃ¡rolÃ³ dobozba, Ã©s anti-aliased , amely
+ szÃ¼rkeÃ¡rnyalatos szinteket vezetett be.A MNIST adatbÃ¡zis 60 000 kÃ©pzÃ©si kÃ©pet Ã©s 10 000 tesztelÃ©si 
+kÃ©pet tartalmaz.  A kÃ©pzÃ©si kÃ©szlet felÃ©t Ã©s a tesztkÃ©szlet felÃ©t a NIST kÃ©pzÃ©si adatÃ¡llomÃ¡nyÃ¡bÃ³l vettÃ¼k 
+mÃ­g a kÃ©pzÃ©si kÃ©szlet mÃ¡sik felÃ©t Ã©s a tesztkÃ©szlet mÃ¡sik felÃ©t a NIST teszt adatkÃ©szletÃ©bÅ‘l vettÃ¼k.  SzÃ¡mos
+ tudomÃ¡nyos dokumentum kÃ©szÃ¼lt a legalacsonyabb hibaarÃ¡ny elÃ©rÃ©sÃ©re irÃ¡nyulÃ³ kÃ­sÃ©rletek sorÃ¡n; egy papÃ­r, a
+ konvolÃºciÃ³s neurÃ¡lis hÃ¡lÃ³zatok hierarchikus rendszerÃ©t hasznÃ¡lva , kÃ©pes kezelni a hibaarÃ¡nyt a MNIST adatbÃ¡zisban 0,23% -kal. 
+Az adatbÃ¡zis eredeti alkotÃ³i megÅ‘rzik a tesztelt mÃ³dszerek kÃ¶zÃ¼l nÃ©hÃ¡nyat.  Eredeti tanulmÃ¡nyukban atÃ¡mogatÃ³ vektor
+ gÃ©pet , hogy 0,8% -os hibaarÃ¡nyt kapjon.  2018-ban kÃ¶zzÃ©tettÃ©k a MNIST-hez hasonlÃ³ kibÅ‘vÃ­tett adatkÃ©szletet, amely 
+240 000 kÃ©pzÃ©si kÃ©pet tartalmaz, Ã©s 40 000 kÃ©zÃ­rÃ¡sos szÃ¡mjegybÅ‘l Ã©s karakterbÅ‘l Ã¡llÃ³ kÃ©peket.
+A kÃ©psorozatot az MNIST adatbÃ¡zisban kombinÃ¡ciÃ³ja kÃ©t NIST adatbÃ¡zisok: speciÃ¡lis adatbÃ¡zis 1. Ã©s speciÃ¡lis adatbÃ¡zis 3.
+ KÃ¼lÃ¶nleges Database 1-es Ã©s kÃ¼lÃ¶n adatbÃ¡zisban 3 Ã¡ll szÃ¡mjegyek Ã­rta kÃ¶zÃ©piskolÃ¡s diÃ¡kok Ã©s alkalmazottak az USBAn.
+1.Telepiteni kell a TensorFlow-ot. utÃ¡na lÃ¡trekell hozni egy twicetwo kÃ¶nyvtÃ¡rat.
+2.azÃ©rt Python kÃ³ddal Ã©pitjÃ¼k mert interfÃ©szÃ©vel nagy szÃ¡mitÃ¡si grÃ¡fokat kelesz szÃ¡molnia.
+---
