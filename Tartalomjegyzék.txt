@@ -137,8 +137,14 @@ A feladatok fennt vannak a repóban, hetekre bontva.
 
 
 9.hét
-
-
+  MNIST: 
+     Elekdztem és még nem fejeztembe.
+     
+   Depp MNIST:
+      Elekdztem és még nem fejeztembe.
+      
+   Összefoglaló:
+      Elekdztem és még nem fejeztembe.
 
 
 
