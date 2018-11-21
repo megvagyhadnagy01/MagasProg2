@@ -13,13 +13,7 @@
 # limitations under the License.
 # ==============================================================================
 
-"""A deep MNIST classifier using convolutional layers.
-See extensive documentation at
-https://www.tensorflow.org/get_started/mnist/pros
-"""
-# Disable linter warnings to maintain consistency with tutorial.
-# pylint: disable=invalid-name
-# pylint: disable=g-bad-import-order
+
 
 from __future__ import absolute_import
 from __future__ import division
