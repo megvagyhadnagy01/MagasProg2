@@ -3,12 +3,15 @@
 A MNIST adatbázis (Modified National Institute of Standards and Technology adatbázis) egy nagy adatbázis kézzel
  írt számjegyekbõl, amelyeket általában különbözõ képfeldolgozó rendszerek képzésére használnak .
 Az adatbázist széles körben használják a gépi tanulás területén való képzésre és tesztelésre .
-Ezt a mintát a NTS adatsorainak összekuszálásával alkoták meg.Az alkotók úgy érezték, hogy mióta a NIST képzési
- adatállománya az amerikai Census Bureau alkalmazottaitól származott , míg a teszt adatkészletet amerikaközépiskolás diákok,
- nem volt alkalmas gépi tanulási kísérletekre.  Továbbá a NIST fekete-fehér képét normalizálták, hogy illeszkedjen egy 28x28 pixeles határoló
- dobozba, és anti-aliased , amely szürkeárnyalatos szinteket vezetett be.
-A MNIST adatbázis 60 000 képzési képet és 10 000 tesztelési képet tartalmaz.  A képzési készlet felét és a tesztkészlet felét a NIST képzési adatállományából vettük 
-míg a képzési készlet másik felét és a tesztkészlet másik felét a NIST teszt adatkészletébõl vettük.  Számos tudományos dokumentum készült a legalacsonyabb hibaarány elérésére
- irányuló kísérletek során; egy papír, a konvolúciós neurális hálózatok hierarchikus rendszerét használva , képes kezelni a hibaarányt a MNIST adatbázisban 0,23% -kal. 
-Az adatbázis eredeti alkotói megõrzik a tesztelt módszerek közül néhányat.  Eredeti tanulmányukban atámogató vektor gépet , hogy 0,8% -os hibaarányt kapjon. 
- 2018-ban közzétették a MNIST-hez hasonló kibõvített adatkészletet, amely 240 000 képzési képet tartalmaz, és 40 000 kézírásos számjegybõl és karakterbõl álló képeket.
+Ezt a mintát a NTS adatsorainak összekuszálásával alkoták meg.Az alkotók úgy érezték, hogy mióta a NIST
+ képzési adatállománya az amerikai Census Bureau alkalmazottaitól származott , míg a teszt adatkészletet
+ amerikaközépiskolás diákok, nem volt alkalmas gépi tanulási kísérletekre.  Továbbá a NIST fekete-fehér
+ képét normalizálták, hogy illeszkedjen egy 28x28 pixeles határoló dobozba, és anti-aliased , amely
+ szürkeárnyalatos szinteket vezetett be.A MNIST adatbázis 60 000 képzési képet és 10 000 tesztelési 
+képet tartalmaz.  A képzési készlet felét és a tesztkészlet felét a NIST képzési adatállományából vettük 
+míg a képzési készlet másik felét és a tesztkészlet másik felét a NIST teszt adatkészletébõl vettük.  Számos
+ tudományos dokumentum készült a legalacsonyabb hibaarány elérésére irányuló kísérletek során; egy papír, a
+ konvolúciós neurális hálózatok hierarchikus rendszerét használva , képes kezelni a hibaarányt a MNIST adatbázisban 0,23% -kal. 
+Az adatbázis eredeti alkotói megõrzik a tesztelt módszerek közül néhányat.  Eredeti tanulmányukban atámogató vektor
+ gépet , hogy 0,8% -os hibaarányt kapjon.  2018-ban közzétették a MNIST-hez hasonló kibõvített adatkészletet, amely 
+240 000 képzési képet tartalmaz, és 40 000 kézírásos számjegybõl és karakterbõl álló képeket.
