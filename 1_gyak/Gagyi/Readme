@@ -1,0 +1,3 @@
+javac Gagyi.java -Xlint:deprecation
+
+java Gagyi
