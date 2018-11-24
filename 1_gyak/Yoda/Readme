@@ -1,0 +1,3 @@
+javac Yoda.java
+
+java Yoda
