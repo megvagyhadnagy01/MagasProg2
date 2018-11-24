@@ -1,3 +1,0 @@
-﻿A Yoda feladatnál egy saját kódot irtam ami sikeresen fordult és futott. 
-Igyekeztem megfogni a lényeget a feladatnál try illetve catch fügvényel és 
-hasonlo képpen NUllPointerException-nal.
