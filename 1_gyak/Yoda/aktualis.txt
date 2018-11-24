@@ -1,3 +1,17 @@
-﻿A Yoda feladatnál egy saját kódot irtam ami sikeresen fordult és futott. 
+	
+Ez a kódtartalmazza a referenciák listáját , de a források továbbra sem tisztázottak, mivel nem tartalmaznak elég inline hivatkozásokat .  
+A programozás zsargon , Yoda körülmények (más néven Yoda jelölés ) egy programozási stílus , ahol a két rész egy kifejezés van cserélve a tipikus rend egy feltételes állítás . A Yoda állapot a kifejezés állandó része a feltételes utasítás bal oldalán helyezkedik el.Ez a stilús Yoda Star Wars karakterről kapta a nevét mert elég gyengén beszélt angolúl.
+ha  ( $ value  ==  42 )  {  / * ... * /  } 
+// A következőképpen olvasható: "Ha az érték egyenlő 42 ..."
+A Yoda feltételek ugyanazt a kifejezést írják le, de fordítva:
+
+ha  ( 42  ==  $ érték )  {  / * ... * /  } 
+// Leolvasás: "Ha 42 értéke megegyezik az értékkel ..."
+Az állandó az összehasonlító operátor bal oldalán van írva , és a változó, amelynek értéke az állandóval szemben ellenőrizve, jobbra van írva. Ez a sorrend hasonlít a Yoda nem szabványos beszédmódjához, amely nagyjából objektum-tárgy-verb  (pl. "Ha kilencszáz éves vagy, akkor olyan jól néz ki, mint nem." ).
+A konstans érték elhelyezése a kifejezésben nem változtatja meg a program viselkedését (hacsak az értékek hamisnak minősülnek  Olyan programozási nyelveken, amelyek egyetlen azonosító jelet ( =) használnak a hozzárendeléshez, és nem összehasonlításhoz, lehetséges hiba az, hogy egy értéket akaratlanul hozzárendelni a feltételes utasítás helyett.
+A null viselkedés elkerülésének előnye hátrányos is lehet, mivel a null pointer hibák elrejthetők, és csak később jelentkeznek a programban.
+
+Egy másik hátránya a C ++-ban jelenik meg, amikor összehasonlítja a nem-alap típusúakat, mivel a == operátor, és nem biztos, hogy megfelelő túlterhelt operátorfunkciót definiáltunk. Példa: a Microsoft CComBSTRösszehasonlítása egy olyan karakterlánccal szemben , amelyet írásban írtak le if (L"Hello" == cbstrMessage), nem mutat túlterhelési funkciót
+A Yoda feltételek a Symfony kódolási szabványok részét képezik . 
 Igyekeztem megfogni a lényeget a feladatnál try illetve catch fügvényel és 
 hasonlo képpen NUllPointerException-nal.
