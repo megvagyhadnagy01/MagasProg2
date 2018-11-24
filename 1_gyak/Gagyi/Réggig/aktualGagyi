@@ -11,7 +11,7 @@ tehát ez fog lefutni mindkét esetben, amikor a Gagyi progiban csináljuk a ké
 return new Integer(i);
 }
 
-A válasz innen már trivi: a két integernél két új objektum jön létre, máshol a tárban más "mem.címmel" persze,
+A válasz innen már triviális: a két integernél két új objektum jön létre, máshol a tárban más "mem.címmel" persze,
 így a hasonlításuk hamis lesz, hiszen különböző objectek, különböző "címmel".
 
 A másik esetben (a -128 esetén) pedig ugyanarra a számra ugyanazt az objectet adja,
