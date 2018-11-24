@@ -8,22 +8,22 @@ public class gagyi {
 			Integer i = 130;
 			Integer j = 130;
 			
-			if(i <= j && i >= j && i != j) {
-				System.out.println("1. Belép i = " + i + " j = " + j);
+			if(i <= j && i >= j && i != j) {			
+				System.out.println("1. BelÃ©p i = " + i + " j = " + j);
 			}	
 			
 			i = 10;
 			j = 10;
 			
 			if(i <= j && i >= j && i != j) {
-				System.out.println("2. Belép i = " + i + " j = " + j);
+				System.out.println("2. BelÃ©p i = " + i + " j = " + j);
 			}
 			
 			i = new Integer(10);
 			j = new Integer(10);
 			
 			if(i <= j && i >= j && i != j) {
-				System.out.println("3. Belép i = " + i + " j = " + j);
+				System.out.println("3. BelÃ©p i = " + i + " j = " + j);
 			}
 		}
 	}
