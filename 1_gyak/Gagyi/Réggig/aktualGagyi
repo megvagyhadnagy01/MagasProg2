@@ -16,3 +16,4 @@ A válasz innen már triviális: a két integernél két új objektum jön létr
 
 A másik esetben (a -128 esetén) pedig ugyanarra a számra ugyanazt az objectet adja,
 hiszen csak kiveszi a kész konzerv integert a poolból, így nyilván ez a két cím meg == lesz
+A léyneg ,hogy kifut az integer méretéböl.
