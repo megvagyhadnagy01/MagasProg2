@@ -1,0 +1,100 @@
+/
+// TensorFlow Hello World 1!
+// twicetwo.cpp
+//
+// nbatfai@robopsy:~/Robopsychology/repos/tensorflow/tensorflow/tensorboard$ python tensorboard.py --logdir=/tmp/twicetwo
+// nbatfai@robopsy:~/Robopsychology/repos/tensorflow/tensorflow/twicetwo$ bazel build :twicetwo
+// nbatfai@robopsy:~/Robopsychology/repos/tensorflow/bazel-bin/tensorflow/twicetwo$ cp -r ~/Robopsychology/repos/tensorflow/tensorflow/twicetwo/models .
+// nbatfai@robopsy:~/Robopsychology/repos/tensorflow/bazel-bin/tensorflow/twicetwo$ ./twicetwo4
+//
+#include "tensorflow/core/platform/env.h"
+#include "tensorflow/core/public/session.h"
+
+int main(int argc, char **argv)
+{
+    tensorflow::Session *session;
+    tensorflow::Status status = tensorflow::NewSession(tensorflow::SessionOptions(), &session);
+    if (!status.ok()) {
+        std::cout << "NewSession: " << status.ToString() << std::endl;
+        return -1;
+    }
+
+    tensorflow::GraphDef graphDef;
+    status = tensorflow::ReadBinaryProto(tensorflow::Env::Default(), "models/twicetwo.pb", &graphDef);
+    if (!status.ok()) {
+        std::cout << "ReadBinaryProto: " << status.ToString() << std::endl;
+        return -2;
+    }
+    
+    // nbatfai@robopsy:~/Robopsychology/repos/tensorflow/bazel-bin/tensorflow/twicetwo$ cp -r ~/Robopsychology/repos/tensorflow/tensorflow/twicetwo/models .
+
+    status = session->Create(graphDef);
+    if (!status.ok()) {
+        std::cout << "Create: " << status.ToString() << std::endl;
+        return -3;
+    }
+
+    std::vector<tensorflow::Tensor> out;
+
+    status = session->Run( {}, {"twicetwo"}, {}, &out);
+
+    if (!status.ok()) {
+        std::cout << "Run: " << status.ToString() << std::endl;
+        return -4;
+    }
+
+    std::cout << out[0].scalar<int>() << std::endl;
+    
+    // nbatfai@robopsy:~/Robopsychology/repos/tensorflow/bazel-bin/tensorflow/twicetwo$ ./twicetwo4
+    
+    session->Close();
+    return 0;
+}
+Készítsük el a Bazel BUILD fájl:
+
+cc_binary(
+    name = "twicetwo",
+    srcs = ["twicetwo.cpp"],
+    deps = [
+        "//tensorflow/core:tensorflow",
+    ]
+)
+
+
+majd a Bazellel készítessük el a futtathatót:
+
+nbatfai@robopsy:~/Robopsychology/repos/tensorflow/tensorflow/twicetwo$ bazel build :twicetwo
+
+a Python kód kiírta protobuf gráfot másoljuk oda, ahol a futtatható megtalálja:
+
+nbatfai@robopsy:~/Robopsychology/repos/tensorflow/bazel-bin/tensorflow/twicetwo$ cp -r ~/Robopsychology/repos/tensorflow/tensorflow/linreg/models .
+
+majd futtathatjuk a progit:
+
+nbatfai@robopsy:~/Robopsychology/repos/tensorflow/bazel-bin/tensorflow/twicetwo$ ./twicetwo
+4
+
+Feladat
+Módosítsuk úgy a példát, hogy a C++ programból jöjjön az egyik tagja a szorzásnak!
+
+twicetwo2.py
+
+#
+# TensorFlow Hello World 1!
+# Exercise 1
+# twicetwo2.py
+#
+import tensorflow
+
+node1 = tensorflow.Variable(3, name="node1")
+node2 = tensorflow.constant(2)
+
+node_twicetwo = tensorflow.mul(node1, node2, name="twicetwo")
+
+sess = tensorflow.Session()
+sess.run(tensorflow.initialize_all_variables())
+print sess.run(node_twicetwo)
+
+writer = tensorflow.train.SummaryWriter("/tmp/twicetwo2", sess.graph)
+
+tensorflow.train.write_graph(sess.graph_def, "models/", "twicetwo2.pb", as_text=False
