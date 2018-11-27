@@ -1,1 +1,42 @@
 : A feladat lényege java grafkis képeségét szemlélteti.Frame fügvény használatával karöltve.
+Importáltam awt és a javax.swing összes objektumát.
+majd lehivtam a Dimensiont:
+A Dimensionosztály egy összetevõ szélességét és magasságát (teljes egészében) egy objektumban foglalja össze.
+ Az osztály az összetevõk bizonyos tulajdonságaihoz kapcsolódik. Az Componentosztály és az LayoutManagerinterfész 
+által meghatározott számos módszer egy Dimensionobjektumot visz vissza .
+Általában a nem-negatív értékek width és heightnem negatív értékek . Az olyan konstruktorok, amelyek lehetõvé 
+teszik a dimenzió létrehozását, nem akadályozzák meg a negatív érték beállítását ezekhez a tulajdonságokhoz. 
+Ha az érték értéke negatív widthvagy heightnegatív, a többi objektum által definiált módszerek viselkedése 
+meghatározatlan.
+Az után mint anfetiekben emlitetem adtam neki végö értéként egy widht és height értékéet.
+Majd ráengedtem a frame fügvényt.
+Az A Frameegy felsõ szintû ablak cím és határ.
+A keret mérete magában foglalja a határon kijelölt területet. A méretei a határ menti terület alkalmazásával állíthatjuk elõ a getInsetsmódszer, azonban, mivel ezek a dimenziók platform-függõ, egy érvényes betétekkel értéket nem lehet beszerezni, amíg a keret készül kijelezhetõ akár hívó packvagy show. Mivel a határterület a keret teljes méretéhez tartozik, a határ ténylegesen elhomályosítja a keret egy részét, korlátozva a megjelenítendõ területet és / vagy az alösszetevõk megjelenítését a négyzet bal felsõ sarkában (insets.left, insets.top), és mérete width - (insets.left + insets.right)szerint height - (insets.top + insets.bottom).
+
+A keret alapértelmezett elrendezése BorderLayout.
+
+A keret natív dekorációi (pl. Frame És Titlebar) kikapcsolhatók setUndecorated. Ez csak akkor lehetséges, ha
+ a keret nem displayable.
+
+A többképernyõs környezetben létrehozhat egy Frame másképernyõs eszközt a Frame (z) Frame(GraphicsConfiguration)vagy 
+gombbal Frame(String title, GraphicsConfiguration). Az GraphicsConfigurationobjektum GraphicsConfigurationa cél
+ képernyõ eszköz egyik eleme .
+
+Egy virtuális eszközben többképernyõs környezetben, ahol az asztali terület több fizikai képernyõeszközt tartalmazhat, az összes konfiguráció határai a virtuális koordinátarendszerrel kapcsolatosak. A virtuális koordinátarendszer eredete az elsõdleges fizikai képernyõ bal felsõ sarkában található. A virtuális eszköz elsõdleges képernyõjének helyétõl függõen negatív koordináták lehetségesek, amint az az alábbi ábrán látható.
+
+A virtuális eszköz diagramja, amely három fizikai képernyõt és egy elsõdleges fizikai képernyõt foglal magában.
+  Az elsõdleges fizikai képernyõ (0,0) koordinátákat mutat, míg egy másik fizikai képernyõ (-80, -100) koordinátákat
+ mutat.
+
+Ilyen környezetben a hívás setLocationsorán virtuális koordinátát kell átadni ehhez a módszerhez. Hasonlóképpen,
+ felhívja getLocationOnScreena Frame virtuális eszközkészlet koordinátáit. Hívja az a getBounds módszerét,
+ GraphicsConfigurationhogy eredetét megtalálja a virtuális koordinátarendszerben.
+
+A következõ kód adja meg az Frameat (10, 10) helyét a megfelelõ fizikai képernyõ eredetéhez viszonyítva
+ GraphicsConfiguration. Ha GraphicsConfigurationnem veszi figyelembe a határokat , a Framehelyszínt a virtuális 
+koordinátarendszerhez viszonyítva (10, 10) fogják beállítani, és az elsõdleges fizikai képernyõn jelenik meg,
+ amely eltérhet a megadott fizikai képernyõtõl GraphicsConfiguration.
+
+      Keret f = új keret (GraphicsConfiguration gc);
+      Téglalap határok = gc.getBounds ();
+      f.setLocation (10 + bounds.x, 10 + bounds.y);
