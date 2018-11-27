@@ -1,1 +1,35 @@
-Az bazdmeg
+ A Gyerek osztály felülírja a szülő osztály egy metódusát, valamint egy sajátot is definiál.
+            A fő osztályból
+			1) elkészítjük a gyerek osztály példányát egy Szülő típusú változóba
+			2) meghívjuk a felülírt metódust cast nélkül
+			3) meghívjuk a felülírt metódust casttal
+			4) megpróbáljuk meghívni az új metódust cast nélkül
+			5) meghívjuk az új metódust casttal
+      
+      Amikor egy Objektumot létrehozunk, azt valójában egy osztályból hozzuk létre. Az osztály egy megírt Java forráskód, aminek nagy vonalakban a következő részei vannak:
+
+Változók
+Metódusok
+Konstrukciós műveletek
+Az első kettőről már hallottál, az utolsó volt az, amit megígértem, hogy előszedjük. A konstrukciós műveletek olyan speciális részei az osztálynak, amelyben azt írjuk le, hogy az objektumot hogyan kell felépíteni, létrehozni a terv alapján.
+
+java:
+Szulo szulo = new Gyerek()
+Minden objektum referencia.
+Mindig dinamikus a kötés.
+De ezzel nem küldhetjük a
+Gyerek által hozott új üzeneteket
+Szulo szulo = new Gyerek()
+
+C++:
+Lehet:
+Szulo& szulo … referencia
+Szulo* szulo … mutató
+Szulo szulo … objektum
+Csak akkor van dinamikus
+kötés, ha a viselkedés virtuálisra
+(virtual kulcsszó az ősben) van
+deklarálva.
+Ugyanúgy igaz, hogy ösosztály
+referencián vagy pointeren keresztül,
+csak az ős üzenetei küldhetőek
