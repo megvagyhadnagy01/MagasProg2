@@ -1,1 +1,4 @@
-A for�s kod m�g folyamatban.
+A for�s kod m�g folyamatban.
+BiPP: felhasználják a 'StringNumber' és 'ComplexStringNumber' osztályt oly módon, amely megmutatja az elv megsértését
+  - StringNumber.java: Egy olyan osztály, amely String reprezentációban kezel számokat.
+  - ComplexStringNumber.java: Egy olyan osztály, amely String reprezentációban kezel komplex számokat.
