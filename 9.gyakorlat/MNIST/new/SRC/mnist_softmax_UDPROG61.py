@@ -42,7 +42,7 @@ FLAGS = None
 
 
 def readimg():
-    file = tf.read_file("sajat3.png")
+    file = tf.read_file("sajat8.png")
     img = tf.image.decode_png(file, channels = 1)
     return img
 

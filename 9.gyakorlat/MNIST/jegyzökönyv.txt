@@ -1,0 +1,10 @@
+https://github.com/tensorflow/tensorflow
+Itt leszedtem a kodot majd feltelepitetem mindent hozá pl:pip ,pip3 ,thicker és hasonlo hiányzo 
+köynvtárakat.
+Aztán venv vagyis Virtual Environments and Packages leszedtem a terminálba  majd a TensorFlow oldalán
+feltüntett modon telepitetem a virtuális környeztet. 
+ezzen keresztül futtatam a kodot.
+de a mnist_softmax_UDPROG61.py fileban a 70 sorban lévö kodot át irtam :
+cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=y, labels=y_)) 
+Ez után szerkesztetem egy képet és a fent emlitett .py kodban átirtam az elérését.
+Sikerült futatni a kodblockot.
