@@ -20,3 +20,49 @@ A képsorozatot az MNIST adatbázisban kombinációja két NIST adatbázisok: sp
 1.Telepiteni kell a TensorFlow-ot. utána látrekell hozni egy twicetwo könyvtárat.
 2.azért Python kóddal épitjük mert interfészével nagy számitási gráfokat kelesz számolnia.
 ---
+A TensorFlow egy szoftverkönyvtár, gépi tanulási algoritmusok leírására és végrehajtására.
+A TensorFlow-val tenzor transzformációs gráfokat lehet összerakni.
+A Tenzorok sokdimenziós mátrixszerűségek.
+
+A transzformációs gráfokba bemennek ezek a tenzorok, többféle módon transzformálódhatnak, a transzformációk eredményei összevonhatóak, és bemenetei lehetnek újabb transzformációknak, aztán a végén egy rakás másik tenzort kapunk eredményül.
+
+A neurális hálók leírhatóak ilyen transzformációs gráf alakban.
+A TensorFlow nem egy nurális háló library, annál eggyel alacsonyabb szintű, általánosabb dolog, ami többek között lehetőséget nyújt neurális hálók összerakására is. 
+
+A TensorFlow rendszer használatát nagy számú optimalizáló algoritmus segíti.
+A számítások vizualizációja a TensorBoard segítségével történhet.
+
+A TensorFlow-val készített programok általában két részből állnak:
+	- számítási gráf felépítése
+	- számítási gráf futtatása
+Fontos, hogy a TensorFlow egymástól jól elkülöníti a fenti két részt!
+
+
+Tekintsünk egy alap példát!
+Vegyünk fel két csúcsot, amelyek az 5 és a 9 konstansoknak felelnek meg.
+	node1 = tf.constant(5.0, dtype=tf.float32)
+	node2 = tf.constant(9.0)
+
+A csúcsok kiértékeléséhez le kell futtatnunk a szekcióban a számítási gráfot. 
+Az alábbi kóddal szekció objektumot hozunk létre, majd futtatjuk a számítási gráfot a 
+csúcsok kiértékelésére: 
+	sess = tf.Session()
+	print(sess.run([node1, node2]))
+
+Adjuk össze az előző két konstansunkat.
+	node3 = tf.add(node1, node2)
+	print(”sess.run(node3): ”, sess.run(node3))
+
+További műveletekkel, például összeadás és szorzás művelettel bonyolultabb számítási gráfot készíthetünk.
+	a = tf.placeholder(tf.float32)
+	b = tf.placeholder(tf.float32)
+	adder_node = a+b # + az összeadás műveletrövid megadása
+	add_and_hatszor = adder_node * 6
+	print(sess.run(add_and_hatszor, {a: 3, b:5}))
+
+A placeholder esetén nem tudjuk előre, hogy milyen értéket kell tárolni!
+A fenti példában összeadjuk a 3-at és az 5-öt, majd az eredményt beszorozzuk 6-tal.
+
+A TensorFlow programban az összes változó inicializálásához explicite hívni kell egy speciális műveletet:
+	init = tf.global_variables_initializer()
+	sess.run(init)
