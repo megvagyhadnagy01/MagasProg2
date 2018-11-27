@@ -1,4 +1,19 @@
 A for�s kod m�g folyamatban.
+A ciklomatikus komplexitás egy szoftvermetrika, melyet Thomas J. McCabe publikált 1976-ban. Alkotója után gyakran McCabe-komplexitásnak is nevezik. A metrika egy adott szoftver forráskódjának alapján határozza meg annak komplexitását, egy konkrét számértékben kifejezve. A komplexitás számítása a gráfelméletre alapul. A forráskódban az elágazásokból felépülő gráf pontjai, és a köztük lévő élek alapján számítható az alábbi módon:
+
+A ciklomatikus (McCabe) komplexitás értéke:
+
+M = E − N + 2P
+ahol
+
+E: A gráf éleinek száma
+N: A gráfban lévő csúcsok száma
+P: Az összefüggő komponensek száma
+A ciklomatikus szám: M = E − N + P
+
+A fenti két érték közötti kapcsolat, hogy a ciklomatikus komplexitás, a gráf ciklomatikus száma, mely a lehetséges kimeneteket köti össze a megfelelő bemenetekkel.
+
+Átfogalmazva szoftverekre: a gráfot az adott függvényben lévő utasítások alkotják, él akkor van 2 utasítás között, ha az egyik után a másik azonnal végrehajtódhat, így a metrika közvetlenül számolja a lineárisan független útvonalakat a forráskódon keresztül.
 BiPP: felhasználják a 'StringNumber' és 'ComplexStringNumber' osztályt oly módon, amely megmutatja az elv megsértését
   - StringNumber.java: Egy olyan osztály, amely String reprezentációban kezel számokat.
   - ComplexStringNumber.java: Egy olyan osztály, amely String reprezentációban kezel komplex számokat.
