@@ -1,0 +1,4 @@
+Bekérek egy bemenetet a terminálból, felvágom szóközök mentén szavakra.
+    Végigmegyek minden szón, és ha az szerepel a szótranszformációs hashmapben, akkor kicserélem egyben.
+    Azokon a szavakon, amelyek nem szerepeltek, betûnként megyek végig, és a betûtranszformációs hashmap
+ segítségével kicserélem az érintett betûket egyesével.
