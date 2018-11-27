@@ -24,8 +24,8 @@ Egy másik hátránya a C ++-ban jelenik meg, amikor összehasonlítja a nem-ala
  egy olyan karakterlánccal szemben , amelyet írásban írtak le if (L"Hello" == cbstrMessage), nem mutat túlterhelési
  funkciót. [
  */
- A kód bekér egy stringet. Amennyiben a string tartalmazza a "yoda" karaktersorozatot, az értékét null-ra állítja.
-  A stringet a "bar" karaktersorozathoz hasonlítja "bar.equals(str)" formában - amennyiben str már null, az ellenkező sorrend NullPointerException-t dobna.
+ A kód bekér egy stringet. Amennyiben a string tartalmazza a "yod" karaktersorozatot, az értékét null-ra állítja.
+  A stringet a "bar" karaktersorozathoz hasonlítja "yod.equals(str)" formában - amennyiben str már null, az ellenkező sorrend NullPointerException-t dobna.
 */
 equals(Object)	Két karakter objektumot hasonlít össze, true értékkel tér vissza, ha a két érték egyenlő.  
 A Yoda feladatnál egy saját kódot irtam ami sikeresen fordult és futott. 
