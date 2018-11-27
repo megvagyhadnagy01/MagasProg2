@@ -17,9 +17,4 @@ A ciklomatikus szám: M = E − N + P
 A fenti két érték közötti kapcsolat, hogy a ciklomatikus komplexitás, a gráf ciklomatikus száma, mely a lehetséges
 kimeneteket köti össze a megfelelő bemenetekkel.
 
-Átfogalmazva szoftverekre: a gráfot az adott függvényben lévő utasítások alkotják, él akkor van 2 utasítás között,
-ha az egyik után a másik azonnal végrehajtódhat, így a metrika közvetlenül számolja a lineárisan független útvonalakat
-a forráskódon keresztül.
-BiPP: felhasználják a 'StringNumber' és 'ComplexStringNumber' osztályt oly módon, amely megmutatja az elv megsértését
-  - StringNumber.java: Egy olyan osztály, amely String reprezentációban kezel számokat.
-  - ComplexStringNumber.java: Egy olyan osztály, amely String reprezentációban kezel komplex számokat.
+A wikipédián talált lesz. Kiválasztott metódus elemzésre: helper.StringNumber.isGreaterThan() metódus, amely két szövegként eltárolt számról állapítja meg, hogy az első nagyobb-e a másodiknál
