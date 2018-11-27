@@ -1,0 +1,19 @@
+A kód bekér egy indulópozíciót és egy hosszot, majd kiírja az indulópozíció + 1-tõl kezdve hosszon keresztül 
+a pi hexadecimális jegyeit
+A használt algoritmus helyessége függ a floating point arithmetic pontosságától a használt gépen, 
+így a kiszámolt összes jegy helyett csak az elsõ 4-et használja fel.
+Ennyi mindig helyesnek bizonyult, és a 32/64 bit váltakozáson kívül 
+ a JVM konzisztensen adja meg a típusok pontosságát.
+" Pi jegyeinek nyomában
+Ez a rész azt segíti, hogy a kedves Olvasó a  olvasásának befejezésekor keletkezett lelkesítõ feszültségét át tudja 
+vezetni a Pi jegyeinek önálló keresésébe.
+A Pi közelítése címû pontban megkezdett gombolyag fonalát követjük tovább. A  könyv hívja fel a figyelmet,
+ hogy Penrose - általunk is sokat hivatkozott -  könyvében azt valószínûsíti, hogy a „van-e tíz 
+egymást követõ hetes számjegy a Pi tizedes kifejtésében?” kérdésre a választ nem egy konkrét számítás és keresés,
+hanem egy egzisztencia bizonyítás adja majd meg. S ezzel szemben 1997-ben Kanada megtalált
+ egy 7777777777 részsztringet a kifejtésben, ami egyébként a 22.869.046.249. pozíciótól kezdõdik!
+
+A következõkben olyan algoritmusokat ismertetünk, amihez a 64 bites lebegõpontos aritmetika is elegendõ.
+ Ez az 1995-ben talált Bailey-Borwein-Plouffe,  féle (röviden BBP) algoritmus, aminek további meglepõ érdekessége
+ hogy a Pi hexadecimális kifejtésében egy adott pozíciótól tudunk jegyeket meghatározni, a korábbi 
+jegyek ismerete nélkül! "
