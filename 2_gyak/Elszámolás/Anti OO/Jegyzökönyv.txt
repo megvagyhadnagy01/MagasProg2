@@ -1,1 +1,8 @@
- Az algoritmust tutor segits�g�vel sikerult megoldani.Sikeresen �rtelmeztem �s futtatam a programot.
+ Az algoritmust tutor segitségével sikerult megoldani.Sikeresen értelmeztem és futtatam a programot.
+ - az időmérő C++ verziójához fájlok létrehozva
+	- Az időmérő java verziójához fájlok létrehozva és implementáció kész.
+	- Előző hétről a BBP java implementáció átmásolva az eheti feladathoz
+	- megállapítás: az időmérő implementálása után kiderült, hogy a BBP feladatban használt algoritmus implementáció túl lassú időméréshez min. 10^6 számjegy esetén - optimalizáció szükséges
+	- megjegyzés: a különböző nyelvek között használt implementáció (logikailag) meg kell, hogy egyezzen ahhoz, hogy a mérés reprezentatív legyen arra nézve, hogy mi maga a futási sebesség közötti különbség
+ 
+ Leggyorsaban a c ileltve a c++ változat futotak és végül a java.
