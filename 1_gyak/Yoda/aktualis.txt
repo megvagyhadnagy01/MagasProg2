@@ -1,17 +1,31 @@
-
-A programozás zsargon , Yoda körülmények (más néven Yoda jelölés ) egy programozási stílus , ahol a két rész egy kifejezés van cserélve a tipikus rend egy feltételes állítás . A Yoda állapot a kifejezés állandó része a feltételes utasítás bal oldalán helyezkedik el. Ennek a programozási stílusnak a neve a Yoda nevű Star Wars karakterből származik , aki nem szabványos nyelvtudással beszélt angolul .
+﻿
+A programozás zsargon , Yoda körülmények (más néven Yoda jelölés ) egy programozási stílus , ahol a két rész egy 
+kifejezés van cserélve a tipikus rend egy 
+feltételes állítás . A Yoda állapot a kifejezés állandó része a feltételes utasítás bal oldalán helyezkedik el. 
+Ennek a programozási stílusnak a neve a Yoda nevű Star Wars karakterből származik , aki nem szabványos nyelvtudással
+ beszélt angolul .
 
 A Yoda feltételek a Symfony kódolási szabványok részét képezik . 
-Az állandó az összehasonlító operátor bal oldalán van írva , és a változó, amelynek értéke az állandóval szemben ellenőrizve, jobbra van írva. Ez a sorrend hasonlít a Yoda nem szabványos beszédmódjához, amely nagyjából objektum-tárgy-verb  (pl. "Ha kilencszáz éves vagy, akkor olyan jól néz ki, mint nem.
-A konstans érték elhelyezése a kifejezésben nem változtatja meg a program viselkedését (hacsak az értékek hamisnak minősülnek - lásd alább). Olyan programozási nyelveken, amelyek egyetlen azonosító jelet ( =) használnak a hozzárendeléshez, és nem összehasonlításhoz, lehetséges hiba az, hogy egy értéket akaratlanul hozzárendelni a feltételes utasítás helyett.
- Yoda-kritikusok kritikája szerint az olvashatóság hiánya olyan hátrányt jelent, amely meghaladja a fent leírt előnyöket. Egyes programozási nyelvek, mivel a Python és a Swift nem engedélyezik a változók hozzárendelését a feltételes feltételek között, meghatározva, hogy a hozzárendelések nem adnak vissza értéket, ebben az esetben ez a hiba lehetetlen.  Számos fordító figyelmeztetést állít elő olyan kódokra vonatkozóan, mint például if (myNumber = 42)(például a GCC -Wall opció figyelmeztet arra, hogy az igazság értékként használt hozzárendelést javasolják ), ami figyelmezteti a programozót a valószínű hibára. A dinamikus nyelvek, mint a JavaScript , gyapothulladékot mint például ESLint figyelmezteti megbízásából belül feltételes. 
+Az állandó az összehasonlító operátor bal oldalán van írva , és a változó, amelynek értéke az állandóval szemben
+ ellenőrizve, jobbra van írva. Ez a sorrend hasonlít a Yoda nem szabványos beszédmódjához, amely nagyjából objektum
+-tárgy-verb  (pl. "Ha kilencszáz éves vagy, akkor olyan jól néz ki, mint nem.
+A konstans érték elhelyezése a kifejezésben nem változtatja meg a program viselkedését (hacsak az értékek hamisnak
+ minősülnek - lásd alább). Olyan programozási nyelveken, amelyek egyetlen azonosító jelet ( =) használnak a 
+hozzárendeléshez, és nem összehasonlításhoz, lehetséges hiba az, hogy egy értéket akaratlanul hozzárendelni a 
+feltételes utasítás helyett.
+ Yoda-kritikusok kritikája szerint az olvashatóság hiánya olyan hátrányt jelent, amely meghaladja a fent leírt
+ előnyöket. Egyes programozási nyelvek, mivel a Python és a Swift nem engedélyezik a változók hozzárendelését a feltételes feltételek között, meghatározva, hogy a hozzárendelések nem adnak vissza értéket, ebben az esetben ez a hiba lehetetlen.  Számos fordító figyelmeztetést állít elő olyan kódokra vonatkozóan, mint például if (myNumber = 42)(például a GCC -Wall opció figyelmeztet arra, hogy az igazság értékként használt hozzárendelést javasolják ), ami figyelmezteti a programozót a valószínű hibára. A dinamikus nyelvek, mint a JavaScript , gyapothulladékot mint például ESLint figyelmezteti megbízásából belül feltételes. 
 
-A null viselkedés elkerülésének előnye hátrányos is lehet, mivel a null pointer hibák elrejthetők, és csak később jelentkeznek a programban.
+A null viselkedés elkerülésének előnye hátrányos is lehet, mivel a null pointer hibák elrejthetők, és csak később
+ jelentkeznek a programban.
 
-Egy másik hátránya a C ++-ban jelenik meg, amikor összehasonlítja a nem-alap típusúakat, mivel a == operátor, és nem biztos, hogy megfelelő túlterhelt operátorfunkciót definiáltunk. Példa: a Microsoft CComBSTRösszehasonlítása egy olyan karakterlánccal szemben , amelyet írásban írtak le if (L"Hello" == cbstrMessage), nem mutat túlterhelési funkciót. [
+Egy másik hátránya a C ++-ban jelenik meg, amikor összehasonlítja a nem-alap típusúakat, mivel a == operátor, és
+ nem biztos, hogy megfelelő túlterhelt operátorfunkciót definiáltunk. Példa: a Microsoft CComBSTRösszehasonlítása
+ egy olyan karakterlánccal szemben , amelyet írásban írtak le if (L"Hello" == cbstrMessage), nem mutat túlterhelési
+ funkciót. [
 
 
-
+equals(Object)	Két karakter objektumot hasonlít össze, true értékkel tér vissza, ha a két érték egyenlő.  
 A Yoda feladatnál egy saját kódot irtam ami sikeresen fordult és futott. 
 Igyekeztem megfogni a lényeget a feladatnál try illetve catch fügvényel és 
 hasonlo képpen NUllPointerException-nal.
