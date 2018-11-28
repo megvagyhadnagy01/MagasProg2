@@ -1,3 +1,0 @@
-A rendezendõ mapet egy párokat tartalmazó üres vektorba másoljuk,
- 
-a vektort a párok második értékei alapján rendezzük, utána pedig kiíratjuk a rendezett vektort.

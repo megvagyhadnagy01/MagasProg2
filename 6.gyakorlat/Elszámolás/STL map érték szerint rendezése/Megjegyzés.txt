@@ -1,0 +1,9 @@
+A rendezendõ mapet egy párokat tartalmazó üres vektorba másoljuk,
+ 
+a vektort a párok második értékei alapján rendezzük, utána pedig kiíratjuk a rendezett vektort
+A map értékek szerinti rendezését a gengszterek rendezéséhez hasonlóan az std::sort és egy lambda 
+függvény segítségével tesszük meg.
+Ebben az esetben a [=] implicit "elkapja" a környezõ scope-ban lévõ változókat érték szerint, paraméterként 
+pedig két key-value pair-t kap meg.
+A key-value paireket a ".second" tagjuk alapján hasonlítja össze, mely a value-nak felel meg, így kapunk
+ érték szerinti rendezést..
