@@ -1,0 +1,10 @@
+A feladat az volt, hogy UML-ben tervezzünk osztályokat és generáljunk belole forrást. A feladat szemlélteti a 
+standard mod- ½
+ellezési eljárást. Azaz kigondolva az osztály/osztályok szerkezetét elobb ezt az átláthatóság kedvéért ábrázoljuk,
+ eztán ez alapján ½
+írjuk a kódot. Valamint azt is bemutatja a feladat, hogy a diagram egyértelm ½uen meghatározza az osztály 
+szerkezetét, hiszen
+automatikusan kód genrálható belole, és a diagram általános voltát is, hiszen barmilyen objektum orientált nyelv
+ ½u kódot lehetne ½
+belole generálni. 
+Az én forráskodom egy Sanfransicbol jöttem java videokurzus alapján készitetem el.
