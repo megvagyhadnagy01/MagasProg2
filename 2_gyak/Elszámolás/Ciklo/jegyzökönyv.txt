@@ -1,4 +1,4 @@
-A for�s kod m�g folyamatban.
+﻿A for�s kod m�g folyamatban.
 A ciklomatikus komplexitás egy szoftvermetrika, melyet Thomas J. McCabe publikált 1976-ban. Alkotója után 
 gyakran McCabe-komplexitásnak is nevezik. A metrika egy adott szoftver forráskódjának alapján határozza meg 
 annak komplexitását, egy konkrét számértékben kifejezve. A komplexitás számítása a gráfelméletre alapul.
@@ -18,3 +18,4 @@ A fenti két érték közötti kapcsolat, hogy a ciklomatikus komplexitás, a gr
 kimeneteket köti össze a megfelelő bemenetekkel.
 
 A wikipédián talált lesz. Kiválasztott metódus elemzésre: helper.StringNumber.isGreaterThan() metódus, amely két szövegként eltárolt számról állapítja meg, hogy az első nagyobb-e a másodiknál
+gcc BPP_test.c -o BBP_test -lm
