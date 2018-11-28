@@ -1,0 +1,17 @@
+A polargen feladatra nem sikerült saját forráskódot irni ezért Bátfai Norbet tanárúr által megadott kódot értelmeztem majd forditottam és futtattam.s
+A legelso feladat a Polárgenerátor java implementációja volt, amit a megadott fólliák alapján könnyed módon el lehetett készíteni. ½
+Ez a feladat remekül rávilágit az elméleti részre, hiszen megnézhettük hogyan is néz ki egy oszály definicója, és láthattuk hogy
+tényleg jelen vannak a tagváltozók és metódusok, és ezek egységbezárva léteznek. A példányosítást és az objektum használatát
+is jól szemlélteti ez a feladat
+A program úgy m ½uködik, hogy mikor a következo értéket kell odaadnia/visszatérítenie, megnézi el ½ osz ½ or hogy van-e tárolt érték. ½
+Ha van akkor azt odaadja, egyébként pedig generál két értéket. Az egyiket tárolja, a nincstárolt flaget megfelelo értékre ál- ½
+lítja(hamisra) és a második értéket visszatéríti.
+Ugyanez a függvény megtalálható az OpenJDK Random.java forrásában, persze más néven. A lényegbeli m ½uködése ugyanaz
+mint a mi kis kódunk. Tehát akkor mi sem lehetünk olyan gagyi programozók ha hasonló kódot bírtunk írni mint a JDK fejlesztoo. ½
+Annyi különbséget fel lehet fedezni, hogy a metódus definicójában szerepel a synchronized. Ami annyit tesz hogy a metódus
+szinkronizált lesz, azaz ha több szál próbálja meghívni ugyanarra az objektumra ugyanazt a szinkronizált metódust, akkor egyszerre
+csak egy hajtódik végre, a többi hivás meg kell várja az éppen végrehajtandó hívás végét. Valamint biztosítja azt, hogy a
+szinkronizált metódusunk biztosan hamarabb lefut, mint bármelyik másik késobb meghívott szinkornizált metódus (ugyanarra ½
+az objektumra). Ez biztosítja hogy az objektum állapotában történo módosítások minden szál számára láthatóak lesznek. ½
+Egy másik különbség, hogy a StrictMath osztályt használja míg mi a Math-ot. Ez annyiban más hogy a StrictMath bitpontos
+eredményt biztosít mindig, míg a Math néha feláldozza a pontosságot (azért még mindig eléggé pontos) a gyorsaság oltárán.
