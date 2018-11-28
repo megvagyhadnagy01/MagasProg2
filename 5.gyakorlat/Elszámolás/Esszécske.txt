@@ -1,4 +1,10 @@
 JDK osztályok
+A JDK-t (Java SE Development Kit) A Java fejlesztőkörnyezeten kívül érdemes beszerezni (bár a fordításhoz közvetlenül
+nem szükséges) az API (Application Programming Interface) dokumentációt is (szintén
+az előző letöltési oldalról indulva). Ez a Java platformon használható több ezer osztály
+igen részletes dokumentációját tartalmazza. A tömörített ZIP állomány tartalmát (docs
+könyvtár) a fejlesztőkörnyezet gyökérkönyvtárába (pl. C:\Program Files\ jdk1.6.0_01)
+érdemes kicsomagolni.
 
 Az 5. hét legelső feladata egy olyan Boost C++ program írása, amely kilistázza a JDK összes osztályát az src mappából.
 A Boost egy olyan open-source C++ könyvtárak összessége, amelyek kiegészítik a C++ Standard Template Library-t.
@@ -19,6 +25,7 @@ könyvtár elérési útját (boost::filesystem:path alkalmazásával),
  a könyvtár bejegyzések vektor (std::vector <boost::filesystem:directory_entry>) és egy range-based 
  for ciklus segítségével
  végigiterálunk a teljes könyvtáron.
+ 
  A for cikluson belül a talált elérési útvonalat a path nevű stringben tároljuk, majd kiválogatjuk közülük azokat, 
  amelyek “.java”-ra végződnek. 
 Az így kapott megfelelő végződésű stringeken további műveleteket végzünk el: először egy új std::string típusú,
@@ -31,3 +38,17 @@ Az így kapott megfelelő végződésű stringeken további műveleteket végzü
 Miután a for ciklus a könyvtárak végére ért, a fájlneveket tartalmazó vektort
 ábécé-sorrendbe rendezzük (std::sort használatával), és egy további range-based for ciklus
 segítségével kiíratjuk ennek a namelist vektornak az elemeit.
+
+
+
+A program
+A programot a szügséges libraryk includeolásával kezdtem.
+Namespacenek az fs boost filesystemet választottam mivel túl hosszú lenne mindig kiirni és a program olvashatóságát is rontaná.
+Ez a program a vele egy mappában lévő src mappában keresi a JDK osztályait, viszont arra is gondoltam ,hogyha nem itt lenne 
+az src mappa akkor addig kéri a felhasználótól a megfelelő elérési útvonalat amig a felhasználó ezzel a rendszerszerben jelenlévő mappára nem mutat.
+Ha véletlen elfelejtene a végére / jelet irni ezt a program megteszi neki.
+Ezután létrehoztam 2 rekurziv könyvtár iterátort it és and néven.
+Ezután létrehoztam egy vektort amiben tárolni fogom a JDk osztályait.
+A for ciklussal ezután rekurzivan jártam be a mappa egész tartalmát aztán minden egyes fájlt ideiglenes stringbe helyeztem.
+Ha a file .java-nak végződött csak akkor helyeztem bele a string vektorba.
+A második for ciklussal autmata referenciával végigjártam az egész vektort és a kiiratásnál figyeltem arra hogy az src mappa nevét ne irassa ki csak a JDK osztályok nevét a teljes elérési útjukkal.
