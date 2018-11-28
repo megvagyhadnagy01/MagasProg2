@@ -5,6 +5,7 @@ az előző letöltési oldalról indulva). Ez a Java platformon használható t�
 igen részletes dokumentációját tartalmazza. A tömörített ZIP állomány tartalmát (docs
 könyvtár) a fejlesztőkörnyezet gyökérkönyvtárába (pl. C:\Program Files\ jdk1.6.0_01)
 érdemes kicsomagolni.
+
 Az 5. hét legelső feladata egy olyan Boost C++ program írása, amely kilistázza a JDK összes osztályát az src mappából.
 A Boost egy olyan open-source C++ könyvtárak összessége, amelyek kiegészítik a C++ Standard Template Library-t.
  Előnye, hogy rengeteg különböző könyvtárból áll, amiket egymástól függetlenül lehet használni, így a forráskódban
@@ -24,6 +25,7 @@ könyvtár elérési útját (boost::filesystem:path alkalmazásával),
  a könyvtár bejegyzések vektor (std::vector <boost::filesystem:directory_entry>) és egy range-based 
  for ciklus segítségével
  végigiterálunk a teljes könyvtáron.
+ 
  A for cikluson belül a talált elérési útvonalat a path nevű stringben tároljuk, majd kiválogatjuk közülük azokat, 
  amelyek “.java”-ra végződnek. 
 Az így kapott megfelelő végződésű stringeken további műveleteket végzünk el: először egy új std::string típusú,
