@@ -1,0 +1,42 @@
+
+
+Ha megvan a SamuCam akkor a BRAINB résznél lehet folytatni
+
+--QT-hez
+source: https://download.qt.io/archive/qt/5.6/5.6.0/
+
+sudo apt-get install libx11-xcb-dev libglu1-mesa-dev
+
+sudo apt-get install build-essential
+
+sudo apt install libssl1.0-dev
+
+chmod +x qt-opensource-linux-x64-5.6.0.run
+
+./qt-opensource-linux-x64-5.6.0.run
+
+--OPENCV
+
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+
+sudo apt-get install libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev
+
+sudo apt-get install opencv-data
+
+sudo apt-get install libopencv-dev
+
+--BRAINB
+
+--talán felesleges:
+
+echo "deb http://us.archive.ubuntu.com/ubuntu/ yakkety universe" | sudo tee -a /etc/apt/sources.list
+
+sudo apt-get update
+
+git clone https://github.com/nbatfai/esport-talent-search.git
+
+/home/peter_versenyi/Qt5.6.0/5.6/gcc_64/bin/qmake BrainB.pro
+
+make
+
+./BrainB
