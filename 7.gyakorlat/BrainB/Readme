@@ -3,6 +3,7 @@
 Ha megvan a SamuCam akkor a BRAINB résznél lehet folytatni
 
 --QT-hez
+source: https://download.qt.io/archive/qt/5.6/5.6.0/
 
 sudo apt-get install libx11-xcb-dev libglu1-mesa-dev
 
