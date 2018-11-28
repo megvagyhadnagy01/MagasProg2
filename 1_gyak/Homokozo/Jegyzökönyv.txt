@@ -1,3 +1,14 @@
-A feladat megold�s�hoz tutork�nt B�tfai Norbert tan�r�r forr�sk�dj�t vettem ig�nybe.
-gyekeztem a feladathoz h�en r�mutatni a pointerekre ileltve a referenci�kra.
- A feladatot �rtelmeztem �s sikeresen forditottam, futtattam.
+A feladat megoldásához tutorként Bátfai Norbert tanárúr forráskódját vettem igénybe.
+gyekeztem a feladathoz hüen rámutatni a pointerekre ileltve a referenciákra.
+Ebben a feladatban a már Prog1-rol jól ismert LZWBinfa c++ nyelven írt forráskódját kellet "lefordítani" javara. Ez esetleg úgy ˝
+kapcsolódhat az elmélethez, hogy szemlélteti, hogy az objetkumorientált paradigma megvalósulása nagyon hasonló az objektumorientált
+nyelvek esetén, az osztálydefiniciók szerkezete elhanyagolhatóan tér el, az elméleti háttér ugyanaz. Ezt a feladat
+megoldása során is lehetett tapasztalni, hiszen a feladat lényegében a referenciák és pointerek elhagyásából és kisebb szintaktikai
+eltérések adaptációjából állt.
+A következo lépés az volt, hogy emeljük át a forrást egy Java Servletbe és a böngész ˝ o címsorából megkapva a mintát kiszámolja ˝
+majd megjeleníti a binfát. Ehez csupán arra volt szükség hogy az eredeti mainre alapozva létrehozzunk egy doGet() függvényt.
+Láthatjuk, hogy kód nagy része nem tér el az eredeti maintol, annyi került be pluszba, hogy a kiírt fileból visszaolvasva a sorokat ˝
+azt beírjuk egy html kódba. Ezt a kódot fogja a böngészo megkapni majd megjeleníteni. A servlet m ˝uködéséhez, szükség volt a ˝
+tomcat használata is, amellyel tudjuk hostolni a servletünket.
+
+ A feladatot értelmeztem és sikeresen forditottam, futtattam.
