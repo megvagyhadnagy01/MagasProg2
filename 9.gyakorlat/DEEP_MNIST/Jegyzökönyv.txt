@@ -1,0 +1,112 @@
+A feladat szinte ugyanaz mint az eloz½ o, de a mély változatot kellett kipróbálni, ami annyiban más, hogy több 
+köztes réteg ½
+"szürjük" meg az adatokat. A feladat úgy kapcsolódik az elmélethez mint az eloz½ o feladat, hogy python-ban
+ használjuk a ½
+tensorflow könyvtárat így vegyül a két paradigma.
+A feladathoz sizntén a tensorflow egy alap példáját kellett kicsit módosítani, méghozzá a deep mnist példát. 
+Az eloz½ o feladathoz ½
+hasonlóan, itt is meg kellett nyitni a vizsgálandó képet majd decodolni ezt úgy, hogy a kimeneti kép color
+
+ channel-je grayscale
+legyen (decode_png()-ben az 1-es paraméter):
+def readimg():
+file = tf.read_file("sajat8a.png")
+img = tf.image.decode_png(file, 1)
+return img
+A modell tanítása után, pedig tesztelni kell a képünket, ami szintén hasonló az eloz½ o feladatban láttottakhaz: ½
+
+img = readimg()
+image = img.eval()
+image = image.reshape(28*28)
+matplotlib.pyplot.imshow(image.reshape(28, 28), cmap=matplotlib.pyplot.cm.binary)
+matplotlib.pyplot.savefig("8.png")
+matplotlib.pyplot.show()
+classification = sess.run(tf.argmax(y_conv, 1), feed_dict={x: [image], keep_prob: 1.0})
+
+Láthatjuk, hogy sok különbség nincs, átadjuk a képünket, majd a kiértékelt y_conv-ból kiválasztjuk a legnagyobb 
+értékkel rendelkezo
+indexet, azaz a legvalószín ½ubb karakter illeszkedést. Most is az el ½ oz½ o példában használt saját 8-as képemet 
+használtam. ½
+Futtatás szempontjából az egyik fo változás, hogy rengeteg ideig tanul, illetve sokáig is teszteli a modellt. 
+Az egésznek a lefutása ½
+nagyjából 45 percet vett igénybe. Ez egyrészt abból adódik, hogy most 1000 iteráció helyett 20.000 iterációt
+ használunk, illetve
+a modell is sokkal bonyolultabb:
+for i in range(20000):
+batch = mnist.train.next_batch(50)
+if i % 100 == 0:
+train_accuracy = accuracy.eval(feed_dict={
+x: batch[0], y_: batch[1], keep_prob: 1.0})
+print(’step %d, training accuracy %g’ % (i, train_accuracy))
+train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
+A hosszú tanítási ido miatt, kimentettem a tanítási állapotot, így azt többször nem kell kivárni: ½
+saver = tf.train.Saver()
+saver.save(sess, "./model/model.ckpt")
+A save függvény hatásássára minden változó értéke ki lesz mentve a megadott fileba. Majd következo futásnál 
+könnyen vissza- ½
+töltheto lesz és használatra kész: ½
+saver.restore(sess, "./model/model.ckpt")
+with tf.name_scope(’conv1’):
+W_conv1 = weight_variable([5, 5, 1, 32])
+b_conv1 = bias_variable([32])
+h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+A weight_variable függvény megadott alakú változót fog visszaadni, melynek értékei normális eloszlásból
+ származnak, míg
+a bias_variable függvény 0.1 értékeket ad vissza a megadott alakban. A conv2d fgv a két 4 dimenziós
+ paraméterének egy 2
+dimenziós konvolúcióját számolja ki, ahol az elso paraméter az input adat míg a második a sz ½ur ½ o.
+ A jelen esetbe az eredménye ½
+[1, 28, 28, 32] alakú lesz, ahogy ezt a képen is lehet látni nagyjából. Ezt követoen ezt összevonjuk, 
+azaz lefelezzük: ½
+with tf.name_scope(’pool1’):
+h_pool1 = max_pool_2x2(h_conv1)
+A max_pool függvény maximum poolozást fog végrehajtani:
+def max_pool_2x2(x):
+return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],
+strides=[1, 2, 2, 1], padding=’SAME’)
+E hatására a input tensor 2. és 3. dimenziójához képest fele akkora lesz a kimenet, mivel 2x2-es windowal
+ keressük a max
+értéket, azaz egy 2x2 részbol fogjuk a legnagyobb értéket kiválasztani. Tehát akkor beláthajuk, hogy a képpel
+ megegyez ½ oen egy ½
+[1, 14, 14, 32] alakú lesz ez a réteg.
+Ezt követi majd még egy konvolúciós réteg és egy poolozás az ábrának megfeleloen: ½
+with tf.name_scope(’conv2’):
+W_conv2 = weight_variable([5, 5, 32, 64])
+b_conv2 = bias_variable([64])
+h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)
+with tf.name_scope(’pool2’):
+h_pool2 = max_pool_2x2(h_conv2)
+Ezek után elosz ½ or [1, 14, 14, 64] majd egy [1, 7, 7, 64] alakú réteggel rendelkezünk. Eztán megcsináljuk 
+az 1. fully connected ½
+réteget:
+with tf.name_scope(’fc1’):
+W_fc1 = weight_variable([7 * 7 * 64, 1024])
+b_fc1 = bias_variable([1024])
+h_pool2_flat = tf.reshape(h_pool2, [-1, 7*7*64])
+h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
+Új súlyokat es biasokat vezetünk be, a pool2-t átalakítjuk. -1 az alakban azt jelenti, hogy bárhogyan lehet 
+resize-olni az adott
+dimenziónak a mértetét. Ez viszont 1 lesz ugye(azaz [1, 3136]). Ezt beszorozzuk súlyokkal és hozzá adjuk biast.
+ Eredmény [1,
+1024] alakú lesz.
+Eztán jelenik meg az átadott keep_prob érték.
+with tf.name_scope(’dropout’):
+keep_prob = tf.placeholder(tf.float32)
+h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
+Ami hatására keep_prob valószín ½uséggel marad meg egy elem (jelen esetben, mikor egy képrol van szó, ezt nem 
+lehet eldobni, ½
+ezért lesz majd a keep_prob értéke 1, hogy biztos megmaradjon). Akkor van értelme ha nem egy kép van
+(elso dimenzió mérete ½
+nem 1).
+Eztán újabb súlyokkkal és biasokkal leképezzük ezt 10 értékre ami ugye a számjegyeknek fog megfelelni:
+Magas szint ½u programozási nyelvek 2 jegyzokönyv ½ 108 / 113
+with tf.name_scope(’fc2’):
+W_fc2 = weight_variable([1024, 10])
+b_fc2 = bias_variable([10])
+y_conv = tf.matmul(h_fc1_drop, W_fc2) + b_fc2
+return y_conv, keep_prob
+Láthatjuk, hogy a szorzás eredménye [1, 10] alakú lesz. És ezzel kész is vagyunk. A súlyok és biasok értéke a
+ tanítás közben fog
+beállni. De láthattuk, hogy a kód megfelel az ábrának. És lássuk be, hogy azért komplexebb mint a képbol egy
+ súly réteggel és ½
+biasokkal csinálok egy [1, 10] alakú tensort módszer (eloz½ o mnist-es példa regresszióra hajazó megoldása).

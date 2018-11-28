@@ -1,17 +1,30 @@
-A program indulásakor a QCommandLineParser segítségével az 'ip' (vagy 'webcamip') paranccsal megadott stringet adjuk át egy SamuLife objektnek.
+A program indulásakor a QCommandLineParser segítségével az 'ip' (vagy 'webcamip') paranccsal megadott stringet
+ adjuk át egy SamuLife objektnek.
 Ezzel azonosítjuk be a használni kívánt kamerát.
 
-A SamuCam.cpp kezeli le a kamerát, de nem ez dolgozza fel a lekérdezett képet.
-A videóforgalom az OpenCV (Open Source Computer Vision Library) videoio.hpp segítségével történik.
+A SamuCam.cpp kezeli le a kamerát,
+ de nem ez dolgozza fel a lekérdezett képet.
+A videóforgalom az OpenCV (Open Source Computer Vision Library)
+ videoio.hpp segítségével történik.
 
-A 'SamuCam::openVideoStream()' indítja el a kamerát, majd beállít egy két dolgot (szélesség, magasság, fps)
-A 'SamuCam::run()' függvényben a while(videoCapture.isOpened()) figyeli, meddig aktív a kapcsolat.
+A 'SamuCam::openVideoStream()' indítja el a kamerát, majd beállít egy két dolgot
+ (szélesség, magasság, fps)
+A 'SamuCam::run()' függvényben a while(videoCapture.isOpened()) figyeli, meddig aktív 
+a kapcsolat.
 Minden 50 ms-ban lekérdezzük egy új "keretet", amelyet eltárolunk a 'frame' változóban.
-Ezután újraméretezzük a keretet.
+Ezután
+ újraméretezzük a keretet.
 
-Készítünk egy szürkeskálás képet az eredetibõl, amelyre "kiegyenlítjük a kép hisztogramját" (cv::equalizeHist).
-Ezt követõen az 'cv::CascadeClassifier' osztály 'detectMultiScale' függvényét használva detektáljuk a különbözõ méretû objektumokat a képen.
-Ezek az objektumok téglalapok egy sorozataként jelennek meg, amelyet a faces tömbben tárolunk.
-Ezekbõl az elsõt kivesszük egy QImage változóba, majd az emit segítségével meghívunk egy 'faceChanged' szignált.
+Készítünk egy szürkeskálás képet az eredetibõl, amelyre "kiegyenlítjük a kép 
+hisztogramját" (cv::equalizeHist).
+Ezt követõen az 'cv::CascadeClassifier' osztály 'detectMultiScale' 
+függvényét használva detektáljuk a különbözõ méretû objektumokat a képen.
+Ezek az objektumok téglalapok
+ egy sorozataként jelennek meg, amelyet a faces tömbben tárolunk.
+Ezekbõl az elsõt kivesszük egy QImage
+ változóba, majd az emit segítségével meghívunk egy 'faceChanged' szignált.
 
-Hasonlóan a 'faceChanged' szignálhoz, meghívjuk a 'webcamChanged' szignált, annyi különbséggel, hogy ez minden keret lekérdezés után végrehajtódik.
+Hasonlóan a 'faceChanged'
+szignálhoz, meghívjuk a 'webcamChanged' szignált, annyi különbséggel, hogy ez minden keret lekérdezés
+ után végrehajtódik.
+Illetve virtualboxba sajna nem sikerült elérni a camerát.Mert átirtam ,hogy ne videostream legyen hanem 0 az értéke.
