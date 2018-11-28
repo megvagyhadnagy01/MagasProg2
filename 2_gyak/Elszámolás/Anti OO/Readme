@@ -1,0 +1,20 @@
+c: gcc BPP_test.c -o BBP_test -lm
+c++ :
+java : 
+sudo apt-get install mono-complete
+
+g++ Anti_oo.cpp -o Anti_oo_cpp
+
+./Anti_oo_cpp
+
+gcc Anti_oo.c -o Anti_oo_c
+
+./Anti_oo_c
+
+javac Anti_oo.java
+
+java Antio_oo
+
+mcs -out:Anti_oo.exe Anti_oo.cs
+
+mono Anti_oo.exe
