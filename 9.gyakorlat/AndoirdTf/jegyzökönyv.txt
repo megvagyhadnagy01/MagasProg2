@@ -1,0 +1,4 @@
+A feladat az volt, hogy próbáljuk ki telefonon a tensorflow objektum detektálás ját androidra. 
+Ehhez klónoztam a githubos repot. Ezt simán betöltöttem android studioba és készítettem egy apk-t belole.
+ Eztán a kipróbálás igen egyszeru volt már. A Detect és ½ Classify demo appokat próbáltam ki.
+ Itt van róluk 2-2 képernyõkép, ebben a sorrendben.
