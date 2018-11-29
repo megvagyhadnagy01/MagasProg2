@@ -1,0 +1,10 @@
+Itt ismét az osztály definiót nézhettük meg, valamint belenézhettünk komplexebb osztályokba is, hiszen meg kellett nézni a JDK
+Integer osztályának implementációját. A feldat az ismert „while (x <= t && x >= t && t != x);” tesztkérdéstípus tárgyalása
+volt, mely akkor lehet végtelen ciklus, ha x, t az egyik esetben az objektum által hordozott érték, a másikban meg az objektum
+referenciája. Alátámasztásként itt van két példa program:
+Ahogyan láthatjuk a -128 esetén a program futása befejezodik, azaz a while ciklus feltétele nem teljesül, míg a -129 esetén a ½
+program végtelen ciklusba szalad. A miért kérdésre az Integer.java forrásban találunk választ:
+Ahogy láthatjuk a fenti forrásból -128 és a high érték(konfigurálható) közti értékek esetén Integer objektumok egy elore elkészített ½
+pooljából kapjuk meg az értéknek megfelelo objektumot, így a -128 értékre kétszer adja vissza ugyanazt a objektumot, így nyílván ½
+a címük is azonos lesz, ezért bukik meg a while feltételünk. Míg a -129 esetén már a "return new Integer(i);" fog lefutni, azaz
+két különbözo cím ½u objektumunk lesz, így válhat majd igazzá az x!=t feltétel
