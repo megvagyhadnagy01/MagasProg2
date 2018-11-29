@@ -2,4 +2,5 @@
 A Comparable interface használatával az adott class objektumai megfelelõ sorrendbe rendezhetõek.
  Ebben a példában csapatokat (egy csapat egy névbõl és egy értékbõl áll) hasonlít össze az értékeik alapján.
 A compareTo metódus a csapat objektumokat hasonlítja össze: ha megegyezik az értékük akkor 0-t,
- ha az éppen összehasonlított értéke kisebb az összehasonlítandónál, akkor -1-et, ha pedig nagyobb, akkor 1-et ad vissza.
+ ha az éppen összehasonlított értéke kisebb az összehasonlítandónál, akkor -1-et, ha pedig nagyobb, 
+akkor 1-et ad vissza.

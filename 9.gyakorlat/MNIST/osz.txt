@@ -1,0 +1,80 @@
+Az adatfolyam programozás egy programozási paradigma, ami a programot úgy modellezi, mint adatok egy irányított
+ gráfját,
+melyben az adatok áramlanak a m ½uveletek között, így adatfolyamot hozva létre. Az adatfolyam programozási nyelvek
+ néhány tulajdonságban
+osztoznak a funkcionális nyelvekkel, és azért lettek kifejlesztve, hogy néhány funkcionális tulajdonságot
+ bevezessenek
+egy olyan nyelvbe amely megfelelo a numerikus feldogolgozásra. ½
+A feladat maga a tensorflow egyik indító példa programja. A lényege, hogy az mnist képek feldolgozásával
+ megtanítsuk a
+programnak a kézzel írott számjegyek felismerését. A feladatot nyilván megelozte a tensorflow telepítése.
+ A CPU-s változatot ½
+választottam, mivel a GPU-s használatához kernelt kellett volna fordítani a videókártya driver miatt. 
+Viszont így is mentek a
+példák, csak kicsit lassabban.
+A feladat alapjául a tanár úr kódja szolgált. Amit nyilván kicsit módosítani kellett, hogy megfeleljen a
+ tensorflow új verziójának.
+Az egyik ilyen kis módosítás a
+Itt elvárta a tf új verziója, hogy explicit megadjuk a labeleket illetve logit függvényeket. A saját kép 
+kezelésénél is voltak
+hibák. Aztán kicsit utána olvasva, illetve megnézve a mnist képeit, meg lehet figyelni hogy ezek grayscale-s
+ képek, illetve fekete
+háttéren fehér az írás, szóval saját képként valami ilyet kell produkálni. A grayscale azért fontos, mert 
+egy eszközölt változtatás
+Itt a decode_png függvénynek meg kellett adni a a color channel-ök számát a kiemeneti képben, ez jelen esetben 
+1 ami azt jelenti,
+hogy a kiemeneti kép grayscale lesz (pont ami nekünk kell). E nélkül volt használva a tanár úrnál, de ez errort
+ váltott már ki. A
+model tanulás után megpróbálja megfejteni a saját képemet is:
+A beolvasot saját képünk Tensor leképzését kiértékeljük az eval() által. Ennek eredményét egy 1 dimenziós vektorrá 
+alakítjuk.
+A felhasználónak megmutatjuk a vizsgálandó képet. Majd szemmel látható lesz, hogy átalakult a kép. Ez elmentésre 
+is kerül.
+Eztán megnézzük minek is ismeri fel a képünket a kis modellünk. Ezt a felismerést kicsit még boncolgatni kéne. 
+Láthatjuk,
+hogy a tf.argmax() függvényt használjuk. Ez a legnagyobb értékkel rendelkezo indexet fogja visszatéríteni az y-on
+ belül. Ez ½
+azért jó, mert az y-ban az fog szerepelni, 0-tól 9-ig indexelve, hogy mekkora a valószín ½usége annak, hogy a 
+megadott képen
+az indexnek megfelelo számjegy szerepel. És nyílván a legnagyobb érték indexe a legvalószín ½ubb számjegyet fogja
+ jelképezni. ½
+Eztán kiiratjuk a classification elso elemét. Ez azért elegend ½ o, mert ugye egy képet teszteltünk le. ½
+Most, hogy láttuk már hogyan elemeztetjük a képet, kicsit nézzük meg az elemzést is. Legelsore azt kell megfigyelni
+ mi az y ½
+változó:
+A beolvasot saját képünk Tensor leképzését kiértékeljük az eval() által. Ennek eredményét egy 1 dimenziós vektorrá alakítjuk.
+A felhasználónak megmutatjuk a vizsgálandó képet. Majd szemmel látható lesz, hogy átalakult a kép. Ez elmentésre is kerül.
+Eztán megnézzük minek is ismeri fel a képünket a kis modellünk. Ezt a felismerést kicsit még boncolgatni kéne. Láthatjuk,
+hogy a tf.argmax() függvényt használjuk. Ez a legnagyobb értékkel rendelkezo indexet fogja visszatéríteni az y-on belül. Ez ½
+azért jó, mert az y-ban az fog szerepelni, 0-tól 9-ig indexelve, hogy mekkora a valószín ½usége annak, hogy a megadott képen
+az indexnek megfelelo számjegy szerepel. És nyílván a legnagyobb érték indexe a legvalószín ½ubb számjegyet fogja jelképezni. ½
+Eztán kiiratjuk a classification elso elemét. Ez azért elegend ½ o, mert ugye egy képet teszteltünk le. ½
+Most, hogy láttuk már hogyan elemeztetjük a képet, kicsit nézzük meg az elemzést is. Legelsore azt kell megfigyelni mi az y ½
+változó:
+x = tf.placeholder(tf.float32, [None, 784])
+W = tf.Variable(tf.zeros([784, 10]))
+b = tf.Variable(tf.zeros([10]))
+y = tf.matmul(x, W) + b
+Láthajuk, hogy az y a x és W mátrixok/tensorok szorzása után b hozzáadásával nyerjük. Jelen esetben a W a súlyokat fogja
+tartalmazni. Ezek értéke a tanítás során optimalizálódik. Ugyanez a helyzet a b-vel, ami a bias-okat hivatott reprezentálni. A bias
+azt jelenti, hogy a jóslatunk milyen messze áll a valóságtól. Ez is a tanulás során állítódik be. Az x egy placeholder, ami változót
+hivatott reprezentálni/kiváltani. Ez fogja értékül kapni a képünket:
+feed_dict={x: [image]}
+Magas szint ½u programozási nyelvek 2 jegyzokönyv ½ 113 / 113
+Belegondolva az x egy 1x784-es mátrix lesz (1 kép van) így a szorzat eredménye egy 1x10-es mátrix lesz, így hozzá lehet adni
+a b-t, majd elég lesz a classification elso értékét megnézni, mivel az arg
+Belegondolva az x egy 1x784-es mátrix lesz (1 kép van) így a szorzat eredménye egy 1x10-es mátrix lesz, így hozzá lehet adni
+a b-t, majd elég lesz a classification elso értékét megnézni, mivel az argmax a vízszintes tengely mentén fog keresni maximális ½
+érétket, és nyilván csak egy vízszintes sor lesz.
+A tanítást nézzük meg:
+cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y_, logits=y) ‹-
+)
+train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
+A tanítás abból áll, hogy a cross_entropy átlagát próbáljuk majd minimalizálni. A reduce_mean ilyen formában a paraméterként
+kapott tensor középértékét fogja vissza adni egy 1x1-es tensor formájábán (egy szám). A tanítási lépés abból áll, hogy ennek
+a függvénynek az értékét próbáljuk minimalizálni a GradientDescentOptimizer algoritmusa segítségével. A minimalizálás a
+paraméterként kapott loss függvény értékének minimalizálását jelenti, jelen esetben az összes trainable változó frissítésével. A
+tanítás során ezt a lépést fogjuk megismételni 1000x, felhasználva az mnist tanító képeit, amit százassával dolgozunk fel:
+for i in range(1000):
+batch_xs, batch_ys = mnist.train.next_batch(100)
+sess.run(train_step, feed_dict={x: batch_xs, y_: batch_ys})

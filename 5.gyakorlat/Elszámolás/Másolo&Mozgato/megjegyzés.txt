@@ -1,4 +1,4 @@
-﻿Ezt böveben az összefoglalás részben fejtetem ki.
+﻿
 Létrehoztam egy Moz classt. Az moz classnak van egy körte pointere. Az A2re meghivtam a copy 
 	constructort és cout-oltam egy stringet.
 	Ezután az a-ra meghivtam a move constructort.
