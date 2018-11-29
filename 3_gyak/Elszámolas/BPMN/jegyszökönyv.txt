@@ -5,4 +5,4 @@
     tevékenység: feladatok feltöltése githubra
     befejezõ esemény: az óra során a feladatok bemutathatóak
    Az elemek olvashatósági okokból vannak leírva a jegyzõkönyvbe, a köztük lévõ kapcsolatok csak a bpmn.jpg-ben találhatóak meg.
-- esettan
+-
