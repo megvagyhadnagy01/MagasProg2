@@ -61,3 +61,8 @@ kinyomja a linkmátrixot, amit mutatok, ha kattintasz a tovább linkre, mert cs�
 {0.0, 0.08333333333333333, 0.0, 0.1111111111111111, 0.14285714285714285, ... 0.0625, ... 0.0, 0.0, }
 amit be kell tenned a AlternativTabella osztályba, az  double[][] L = {}; kapcsos karmai közé.
 
+
+
+forrás:
+https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html
+Bátfai Tanár úr.
