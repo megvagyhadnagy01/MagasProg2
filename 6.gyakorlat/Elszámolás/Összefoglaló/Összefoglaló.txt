@@ -1,12 +1,68 @@
 Tabella
-Az interf�sz �lland�kb�l �s m�dszertani nyilatkozatokb�l �ll. Az Comparable<T>interf�sz csak egy m�dszerb�l �ll (�s nincsenek konstansok)
-. P�ld�ul, ha az objektumok Strings, akkor Taz String. Strings implement�lja az Comparable<String> interf�szt.
-Ha egy objektum egy olyan oszt�ly, amely v�grehajtja Comparable, akkor ez az objektum kisebb , egyenl� vagy nagyobb, 
-mint az adott oszt�ly b�rmely objektuma. compareTo() egy eg�sz sz�mot jelen�t meg annak bemutat�s�ra, hogy a h�rom kapcsolat k�z�l melyik.
+Az interfész állandókból és módszertani nyilatkozatokból áll. Az Comparable<T>interfész csak egy módszerből áll
+(és nincsenek konstansok)
+. Például, ha az objektumok Strings, akkor Taz String. Strings implementálja az Comparable<String> interfészt.
+Ha egy objektum egy olyan osztály, amely végrehajtja Comparable, akkor ez az objektum kisebb , egyenlő vagy nagyobb, 
+mint az adott osztály bármely objektuma. compareTo() egy egész számot jelenít meg annak bemutatására, hogy
+a három kapcsolat közül melyik.
  	Kapcsolat	 	objectA.compareTo (objectB)
-objectA	| Kevesebb, mint |	objectB	Negat�v eg�sz sz�m
-objectA	| Egyenl� |	objectB	Nulla
-objectA	| Nagyobb, mint |	objectB	Pozit�v eg�sz sz�m
-A StringA kevesebb, mint a StringB, ha a StringA folytat�dik a StringB egy sz�t�rban. P�ld�ul,
-Csak a visszat�r� eg�sz sz�m jelzi, ha a visszat�r�si �rt�k nem nulla. A visszaadott eg�sz sz�m nagys�ga nem jelent semmit.
+objectA	| Kevesebb, mint |	objectB	Negatív egész szám
+objectA	| Egyenlő |	objectB	Nulla
+objectA	| Nagyobb, mint |	objectB	Pozitív egész szám
+Ez az interfész teljes rendelést tesz az egyes osztályok objektumaira, amelyek végrehajtják azt. Ez rendelési nevezzük az osztály természetes rendelési és az osztály compareTo módszert nevezik a természetes összehasonlítási módszer .
+Az ezen felületet végrehajtó objektumok listái (és tömbök) automatikusan Collections.sort(és Arrays.sort) automatikusan rendezhetők . Az ezen felületet végrehajtó objektumok kulcsként használhatók egy rendezett térképen vagy elemként egy sorozatban , anélkül, hogy összehasonlítót kellene megadni .
 
+A természetes rendelési egy osztály C azt mondják, hogy összhangban egyenlők , ha, és csak akkor, ha e1.compareTo (e2) == 0 ugyanolyan logikai érték, mint e1.equals (e2) minden e1 és e2 osztály C . Vegye figyelembe, hogy null nem egy példánya minden osztály, és e.compareTo (null) kell dobni egy NullPointerException noha e.equals (null) visszatér hamis .
+
+Erősen ajánlott (bár nem feltétlenül szükséges), hogy a természetes rendezések egyenértékűek legyenek. Ez azért van így, mert a szétválogatott készletek (és a rendezett térképek) anélkül, hogy az explicit összehasonlítók "furcsaan" viselkednének, ha olyan elemekkel (vagy kulcsokkal) használják őket, amelyek természetes rendelése ellentétes az egyenlőséggel. Különösen, egy ilyen válogatott készlet (vagy rendezett térkép) sérti a készlet (vagy térkép) általános szerződését, amelyet az egyenlő módszerrel határozunk meg .
+
+Például, ha két kulcsot hozzáadunk a és b-hez úgy, (!a.equals(b) && a.compareTo(b) == 0)hogy egy olyan sorba rendezett készlethez, amely nem tartalmaz kifejezett összehasonlítót, akkor a második add művelet hamis (és a sorba rendezett készlet mérete nem növekszik), mert a és b egyenértékű a rendezett készlet perspektíváját.
+
+Gyakorlatilag az összes összehasonlítható Java- magosztálynak olyan természetes rendszere van, amely megfelel az egyenlőeknek. Az egyik kivétel a java.math.BigDecimal , amelynek természetes rendezése azonos értékekkel és különböző pontosságú BigDecimal objektumokkal egyenértékű (például 4.0 és 4.00).
+
+A matematikailag hajlított, az adott C osztály természetes rendezését meghatározó reláció :
+
+       {(x, y) úgy, hogy x.compareTo (y) <= 0}.
+ 
+A teljes rendelés hányadosa :
+       {(x, y) úgy, hogy x.compareTo (y) == 0}.
+ 
+Az összehasonlításból azonnal következik, hogy a hányados egyenértékűségi viszonya a C-nek , és hogy a természetes rendezés teljes sorrend a C-nél . Amikor azt mondjuk, hogy egy osztály természetes rendezése összhangban van az egyenlőséggel , azt értjük, hogy a természetes rendezés hányadosa az osztály equals(Object)módszere által meghatározott egyenértékűségi viszony :
+     {(x, y) úgy, hogy x.egyenleg (y)}. 
+Ez a felület a Java Collections Framework tagja .
+A StringA kevesebb, mint a StringB, ha a StringA folytatódik a StringB egy szótárban. Például,
+Csak a visszatérő egész szám jelzi, ha a visszatérési érték nem nulla. A visszaadott egész szám nagysága nem jelent semmit.
+Ha nem követted magad a bajnokságot, akkor nézd meg a kereszttáblázatot! Ezt gépeld be  Wiki2Matrix kereszt nevű 2D tömbjébe az alábbiak szerint:
+
+üres=0
+zöld=1
+sárga=2
+piros=3
+ Most ezt kaptam:
+
+     int[][] kereszt = {
+      {0, 0, 0, 1, 0, 3, 2, 3, 3, 2, 0, 0, 0, 2, 2, 3},
+      {3, 0, 2, 1, 3, 2, 0, 3, 3, 3, 0, 0, 0, 0, 0, 1},     
+      ...
+      .
+      .
+      {0, 0, 1, 0, 1, 0, 3, 1, 1, 0, 0, 1, 2, 1, 3, 0}
+    };
+
+(Az első oszlop 2 sorának 3-as jegye azt mondja, hogy a megfelelő meccsen: a Honvéd otthonában a Siófok győzött.)
+
+Ezzel a Wiki2Matrix osztályt lefordítva/lefuttatva:
+
+javac Wiki2Matrix.java
+java Wiki2Matrix
+
+kinyomja a linkmátrixot, amit mutatok, ha kattintasz a tovább linkre, mert csúnya lesz...
+
+{0.0, 0.08333333333333333, 0.0, 0.1111111111111111, 0.14285714285714285, ... 0.0625, ... 0.0, 0.0, }
+amit be kell tenned a AlternativTabella osztályba, az  double[][] L = {}; kapcsos karmai közé.
+
+
+
+forrás:
+https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html
+Bátfai Tanár úr.

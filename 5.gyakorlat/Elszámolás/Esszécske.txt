@@ -43,12 +43,16 @@ segítségével kiíratjuk ennek a namelist vektornak az elemeit.
 
 A program
 A programot a szügséges libraryk includeolásával kezdtem.
-Namespacenek az fs boost filesystemet választottam mivel túl hosszú lenne mindig kiirni és a program olvashatóságát is rontaná.
-Ez a program a vele egy mappában lévő src mappában keresi a JDK osztályait, viszont arra is gondoltam ,hogyha nem itt lenne 
-az src mappa akkor addig kéri a felhasználótól a megfelelő elérési útvonalat amig a felhasználó ezzel a rendszerszerben jelenlévő mappára nem mutat.
+Namespacenek az fs boost filesystemet választottam mivel túl hosszú lenne mindig kiirni és a program olvashatóságát is
+rontaná.
+Ez a program a vele egy mappában lévő src mappában keresi a JDK osztályait, viszont arra is gondoltam ,hogyha nem itt 
+lenne 
+az src mappa akkor addig kéri a felhasználótól a megfelelő elérési útvonalat amig a felhasználó ezzel a rendszerszerben
+jelenlévő mappára nem mutat.
 Ha véletlen elfelejtene a végére / jelet irni ezt a program megteszi neki.
 Ezután létrehoztam 2 rekurziv könyvtár iterátort it és and néven.
 Ezután létrehoztam egy vektort amiben tárolni fogom a JDk osztályait.
 A for ciklussal ezután rekurzivan jártam be a mappa egész tartalmát aztán minden egyes fájlt ideiglenes stringbe helyeztem.
 Ha a file .java-nak végződött csak akkor helyeztem bele a string vektorba.
-A második for ciklussal autmata referenciával végigjártam az egész vektort és a kiiratásnál figyeltem arra hogy az src mappa nevét ne irassa ki csak a JDK osztályok nevét a teljes elérési útjukkal.
+A második for ciklussal autmata referenciával végigjártam az egész vektort és a kiiratásnál figyeltem arra hogy az src mappa 
+nevét ne irassa ki csak a JDK osztályok nevét a teljes elérési útjukkal.
