@@ -1,0 +1,10 @@
+A feladat a polártranszformációs normális generátor beprogramozása volt Java nyelven.
+Az algoritmus adott volt, így azt nekünk nem kellet ismernünk a használathoz akárcsak a
+fent említett autós példánál. Ezt csupán egy az osztályon belüli metódusba kellett
+implementálnunk. Ezen felül szükségünk volt két változóra. Egy double típusúra a generált
+szám tárolásához, illetve egy boolean típusúra ahhoz hogy megtudjuk vizsgálni le kell-e
+futtatni az algoritmust. Tehát a for cikluson belüli g.next() függvény minden 2. meghívásnál
+a savedNumber változóban tárolt számot fogja visszaadni és nem fog lefutni az
+algoritmus.
+
+----
