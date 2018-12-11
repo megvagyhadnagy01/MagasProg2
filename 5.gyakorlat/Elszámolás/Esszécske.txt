@@ -1,58 +1,46 @@
 JDK osztályok
 A JDK-t (Java SE Development Kit) A Java fejlesztőkörnyezeten kívül érdemes beszerezni (bár a fordításhoz közvetlenül
-nem szükséges) az API (Application Programming Interface) dokumentációt is (szintén
-az előző letöltési oldalról indulva). Ez a Java platformon használható több ezer osztály
-igen részletes dokumentációját tartalmazza. A tömörített ZIP állomány tartalmát (docs
+nem szükséges) az API (Application Programming Interface) dokumentációt is . Ez a Java platformon több ezer osztály
+igen részletes dokumentációja található meg és lehet olvasgatni. A tömörített ZIP állomány tartalmát (docs
 könyvtár) a fejlesztőkörnyezet gyökérkönyvtárába (pl. C:\Program Files\ jdk1.6.0_01)
-érdemes kicsomagolni.
+volt érdemes kicsomagolni.
+A feladatnak elmélete , hogy a Java nem primitív típusait kell lényegében megszámlálni, amelyeket láthatjuk, hogy tényleg osztályokként vannak leképezve.Ez nagyon hasonlit a tavalyi Prog1 Fénykadrjához  ahol megkereste a future könyvtárszerkezetében 
+a .props file-okat és kiolvasta belole a pontokat.
 
-Az 5. hét legelső feladata egy olyan Boost C++ program írása, amely kilistázza a JDK összes osztályát az src mappából.
+Vagyis elméletileg a tavalyi tudásunkat kelelt hasznositani ,hogy egy Boost C++ program írása, amely megjeleniti az összes JDK  osztályát az src mappából.
 A Boost egy olyan open-source C++ könyvtárak összessége, amelyek kiegészítik a C++ Standard Template Library-t.
- Előnye, hogy rengeteg különböző könyvtárból áll, amiket egymástól függetlenül lehet használni, így a forráskódban
- elég azt a könyvtárat includeolni, amelyet ténylegesen használ a kód.
-Az src könyvtárban alkönyvtárak találhatóak, ezeken belül pedig vagy további alkönyvtárak, vagy
-pedig .java kiterjesztésű fájlok vannak.
- A .java fájlok egy-egy JDK osztálynak felelnek meg, tehát ezeket fájlokat kell a programnak 
+Azért elönyös mert több egymástól független kőnyvtárból éppül fel és igy a kodunkban csupán azt kell beinportálni amit éppen
+hasznáni kivánúnk.
+Az src felépitése úgy nézki ,hogy főköynvtár és többi alköynvtárból épül fell vagy .java kiteszjesztésü fájlók tömkelegéből.
+Ezek a .java fájlok egy-egy JDK osztálynak felelnek meg, vagyis a feladatunk ,hogy ezeket fájlokat kell a programnak 
  a Boost.Filesystem könyvtár segítségével kilistáznia.
- Ezt az alábbi módon lehet megvalósítani:
+Ennek a megoldása nem más mint ,hogy:
 Először deklarálunk egy std::string típusú path változót, ami az aktuálisan talált
 elérési útvonalat fogja tárolni, illetve egy namelist nevű vektort,
- ami std::string típusú elemeket tárol, ez fogja tartalmazni a JDK osztályok neveinek a listáját. 
-A Boost.Filesystem könyvtárban definiált osztályok felhasználásával meg tudjuk adni a vizsgálandó 
-könyvtár elérési útját (boost::filesystem:path alkalmazásával),
- amely jelen esetben ./src, azaz az src könyvtár a forráskóddal közös könyvtárban van.
+ ami std::string típusú elemeket tárol, ebben lesz elérhető  a JDK osztályok neveinek a listája. 
+A Boost.Filesystem könyvtárban meghatározot osztályok felhasználásával meg tudjuk adni a vizsgálandó 
+könyvtár elérési útját (boost::filesystem:path alkalmazásával), amely jelen esetben ./src, azaz az src könyvtár a forráskóddal közös könyvtárban van.
+ Azt is igyekeztem belefűzni,hogy src mappa akkor addig kéri a felhasználótól a megfelelő elérési útvonalat
+amig a felhasználó ezzel a rendszerszerbenjelenlévő mappára nem mutat.
  Ezután a rekurzív könyvtár iteráló osztály (boost::filesystem:recursive_directory_iterator),
- a könyvtár bejegyzések vektor (std::vector <boost::filesystem:directory_entry>) és egy range-based 
- for ciklus segítségével
- végigiterálunk a teljes könyvtáron.
+ a könyvtár bejegyzések vektor amibe tároljuk a JDK osztályokat 
+ (std::vector <boost::filesystem:directory_entry>) és egy range-based for ciklus segítségével végig megyűnk a teljes könyvtáron.
  
- A for cikluson belül a talált elérési útvonalat a path nevű stringben tároljuk, majd kiválogatjuk közülük azokat, 
- amelyek “.java”-ra végződnek. 
+  A for cikluson belül a talált elérési útvonalat a path nevű  ideiglenes stringben tároljuk, majd kiszedjük belölük  azokat, 
+ amelyek “.java”-ra végződnek vagyis csak azokat helyezűk bele. 
 Az így kapott megfelelő végződésű stringeken további műveleteket végzünk el: először egy új std::string típusú,
  extractfile nevű változóban tároljuk a teljes elérési útból string::substr segítségével
  kivágott fájlnév stringet, ehhez meg kell keresni az elérési útban
- található legutolsó ‘/’ jelet. Majd a kapott fájlnévből kivágjuk ismét string::substr alkalmazásával 
+ található legutolsó ‘/’ jelet. Majd a kapott fájlnévből kivágjuk ismét string::substr felhasználásával
  a .java végződést. Az eredmény egy extractname nevű, std::string típusú változó,
  amely már csak az adott JDK osztály nevét tartalmazza, ezek összességét pedig a már
  korábban deklarált namelist nevű vektorban tároljuk. 
 Miután a for ciklus a könyvtárak végére ért, a fájlneveket tartalmazó vektort
 ábécé-sorrendbe rendezzük (std::sort használatával), és egy további range-based for ciklus
 segítségével kiíratjuk ennek a namelist vektornak az elemeit.
+Aztán ha minden jól csináltunk akkor kilistázta a feltételeknek megfelelő osztályát.
 
 
 
-A program
-A programot a szügséges libraryk includeolásával kezdtem.
-Namespacenek az fs boost filesystemet választottam mivel túl hosszú lenne mindig kiirni és a program olvashatóságát is
-rontaná.
-Ez a program a vele egy mappában lévő src mappában keresi a JDK osztályait, viszont arra is gondoltam ,hogyha nem itt 
-lenne 
-az src mappa akkor addig kéri a felhasználótól a megfelelő elérési útvonalat amig a felhasználó ezzel a rendszerszerben
-jelenlévő mappára nem mutat.
-Ha véletlen elfelejtene a végére / jelet irni ezt a program megteszi neki.
-Ezután létrehoztam 2 rekurziv könyvtár iterátort it és and néven.
-Ezután létrehoztam egy vektort amiben tárolni fogom a JDk osztályait.
-A for ciklussal ezután rekurzivan jártam be a mappa egész tartalmát aztán minden egyes fájlt ideiglenes stringbe helyeztem.
-Ha a file .java-nak végződött csak akkor helyeztem bele a string vektorba.
-A második for ciklussal autmata referenciával végigjártam az egész vektort és a kiiratásnál figyeltem arra hogy az src mappa 
-nevét ne irassa ki csak a JDK osztályok nevét a teljes elérési útjukkal.
+
+
