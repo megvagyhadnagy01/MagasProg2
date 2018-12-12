@@ -9,6 +9,23 @@ a három kapcsolat közül melyik.
 objectA	| Kevesebb, mint |	objectB	Negatív egész szám
 objectA	| Egyenlő |	objectB	Nulla
 objectA	| Nagyobb, mint |	objectB	Pozitív egész szám
+A feladat remekül szemléltei az interfészek felhasználási módját ,deifinicioját illetve ha implementáljuk akkor
+abasztraktból konkréttá válik.Arra kitér,hogy absztrakt metódusainak implementáció utáni felhasználássát is.
+De a fő mondanivalo a Comparable<T> szerepe amit a kodban találunk meg természetesen mégpedig a követekző két sorban
+"
+java.util.List<Csapat> rendezettCsapatok = java.util.Arrays.asList(csapatok);
+java.util.Collections.sort(rendezettCsapatok);
+"
+A dokumentációban utána néztem és ott azt olvastam ,hogy a rendezés csak olyan listákon műkszik ,ahol minden eleme 
+implementálja a Comparable interfacet.Ez igy ugy szép is jó de miért? ez nem hagyot nyugodni igy jobban utána néztem
+A java.util.Collections forrásban észrevehetjük a sort fügvényt és annak definiciójában ,hogy bounded type paraméterekről van szó.
+Észrevehető ,hogy a T típúst extends követi ami interfaceknél implements jelent .Majd ezt egy lower bounded wilcard követ.
+Ami annyit jelent ,hogy T-nek vagy szupertipusának implementálni kell a Comparablet.
+Tovább menve látható,hogy a sort null-t kapot paraméterűl és if ágban folytatodik.
+A java.ComparableTimeSort osztálynál a binarySort fgv. került felhasználásra.Láthatjuk, hogy az Object tömb elemeit Comparable típusra castoljuk, amelyek eredetileg a Csapat lista elemei lesznek. Ez ugye
+nem lenne lehetséges, ha nem implementálná (o vagy egy super típusa) a comparable interface-t, továbbá a kijelölt compareTo() ˝
+függvény sem műuködne.
+
 Ez az interfész teljes rendelést tesz az egyes osztályok objektumaira, amelyek végrehajtják azt. Ez rendelési nevezzük az osztály természetes rendelési és az osztály compareTo módszert nevezik a természetes összehasonlítási módszer .
 Az ezen felületet végrehajtó objektumok listái (és tömbök) automatikusan Collections.sort(és Arrays.sort) automatikusan rendezhetők . Az ezen felületet végrehajtó objektumok kulcsként használhatók egy rendezett térképen vagy elemként egy sorozatban , anélkül, hogy összehasonlítót kellene megadni .
 
