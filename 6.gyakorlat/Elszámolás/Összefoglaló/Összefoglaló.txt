@@ -79,7 +79,7 @@ kinyomja a linkmátrixot, amit mutatok, ha kattintasz a tovább linkre, mert cs�
 amit be kell tenned a AlternativTabella osztályba, az  double[][] L = {}; kapcsos karmai közé.
 
 
-
+c
 forrás:
 https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html
 Bátfai Tanár úr.
